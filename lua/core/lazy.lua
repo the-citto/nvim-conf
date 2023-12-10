@@ -35,6 +35,10 @@ require("lazy").setup({
     -- Formatters
     -- 'mhartington/formatter.nvim'
 
+    {
+        "nvim-treesitter/nvim-treesitter", 
+        build = ":TSUpdate"
+    }
 },
 {})
 
