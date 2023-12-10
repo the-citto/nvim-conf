@@ -47,9 +47,14 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         full_name = false,
         root_folder_label = ":~:s?$?/..?",
         indent_width = 2,
-        special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
+        special_files = { 
+            "Cargo.toml", 
+            "Makefile", 
+            "README.md", 
+            "readme.md" 
+        },
         symlink_destination = true,
-        highlight_git = false,
+        highlight_git = true,
         highlight_diagnostics = false,
         highlight_opened_files = "none",
         highlight_modified = "none",
