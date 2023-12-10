@@ -12,16 +12,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 require("lazy").setup({
-
-    {
-        -- theme
-        'rebelot/kanagawa.nvim',
-        config = function()
-            vim.cmd("colorscheme kanagawa-dragon")
-        end,
-    },
-
+    -- theme
+    'rebelot/kanagawa.nvim',
     -- mason 
     "williamboman/mason.nvim",
     -- lsp
@@ -35,14 +29,12 @@ require("lazy").setup({
     -- Formatters
     -- 'mhartington/formatter.nvim'
 
+
     {
         "nvim-treesitter/nvim-treesitter", 
         build = ":TSUpdate"
     }
-},
-{})
-
-
+})
 
 
 
