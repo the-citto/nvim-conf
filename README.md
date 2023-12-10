@@ -29,5 +29,11 @@ likely missing, as they're system requirements
 
 --> on Arch `pacman -S fd` 
 
+### nvim-tree
+
+used [hack nerd font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip) from Nerd Fonts' [download](https://www.nerdfonts.com/font-downloads)
+
+#### on WSL
+[Use Terminal-Icons to add missing folder or file icons](https://learn.microsoft.com/en-us/windows/terminal/tutorials/custom-prompt-setup#use-terminal-icons-to-add-missing-folder-or-file-icons)
 
 
