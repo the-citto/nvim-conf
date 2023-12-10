@@ -1,4 +1,5 @@
 
+
 require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
     on_attach = "default",
     hijack_cursor = false,
