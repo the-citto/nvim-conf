@@ -1,16 +1,26 @@
 
 require("nvim-treesitter.configs").setup({
+    build = ":TSUpdate",
     ensure_installed = { 
-        "c", 
-        "lua", 
-        "vim", "vimdoc", 
-        "query", 
+        "c",
+        "c_sharp", 
+        -- "cmake",
+        "cpp",
         "elixir", 
         "heex", 
-        "javascript",
         "html",
-        "rust",
+        "javascript",
+        "json",
+        "lua", 
         "python",
+        "query", 
+        "rust",
+        "toml",
+        "typescript",
+        "vim", 
+        "vimdoc",
+        "xml",
+        "yaml",
     },
     sync_install = false,
     -- List of parsers to ignore installing (or "all")
@@ -18,7 +28,6 @@ require("nvim-treesitter.configs").setup({
 
     ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
     -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-
     highlight = {
         enable = true,
 

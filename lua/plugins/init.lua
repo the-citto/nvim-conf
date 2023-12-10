@@ -1,4 +1,3 @@
 
-require("plugins.mason")
-require("plugins.treesitter")
+require("plugins.lazy")
 

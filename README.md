@@ -15,3 +15,19 @@ following [nvchad](https://github.com/NvChad/NvChad)'s folder structure, and tak
 
 
 
+### telescope
+
+call `:checkhealth telescope` after installing
+
+likely missing, as they're system requirements
+
+`ripgrep` 
+
+-> on Arch `pacman -S ripgrep-all` 
+
+`fd` 
+
+--> on Arch `pacman -S fd` 
+
+
+
