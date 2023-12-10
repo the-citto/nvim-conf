@@ -38,6 +38,21 @@ require("lazy").setup({
     {
         'nvim-telescope/telescope.nvim', branch = '0.1.x',
         dependencies = { 'nvim-lua/plenary.nvim' }
+    },
+
+    'mbbill/undotree',
+
+    -- Git related plugins
+    --'tpope/vim-fugitive',
+    --'tpope/vim-rhubarb',
+
+    {
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
     }
 })
 
@@ -45,7 +60,10 @@ require("lazy").setup({
 require("plugins.kanagawa")
 require("plugins.mason")
 require("plugins.treesitter")
-require("plugins.telescope")
+--require("plugins.telescope")
+--require("plugins.undotree")
+--require("plugins.fugitive")
+require("plugins.nvimtree")
 
 
 

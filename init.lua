@@ -1,7 +1,10 @@
 
+require("settings")
+require("keymaps")
 
-require("core")
 require("plugins")
+
+require("colors")
 
 
 
