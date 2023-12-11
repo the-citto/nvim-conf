@@ -43,8 +43,8 @@ require("lazy").setup({
     'mbbill/undotree',
 
     -- Git related plugins
-    --'tpope/vim-fugitive',
-    --'tpope/vim-rhubarb',
+    'tpope/vim-fugitive',
+    'tpope/vim-rhubarb',
 
     {
         "nvim-tree/nvim-tree.lua",
