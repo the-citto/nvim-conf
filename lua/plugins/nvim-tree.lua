@@ -27,7 +27,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         number = false,
         relativenumber = false,
         signcolumn = "yes",
-        width = 30,
+        width = 35,
         float = {
             enable = false,
             quit_on_focus_loss = true,
@@ -162,12 +162,12 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         },
     },
     modified = {
-        enable = false,
+        enable = true,
         show_on_dirs = true,
         show_on_open_dirs = true,
     },
     filters = {
-        git_ignored = true,
+        git_ignored = false,
         dotfiles = false,
         git_clean = false,
         no_buffer = false,

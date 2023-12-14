@@ -14,56 +14,74 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
-    'rebelot/kanagawa.nvim',
     
-    {
-        "williamboman/mason.nvim",
-        -- lsp
-        "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig",
-        -- dap
-        'mfussenegger/nvim-dap',
-        'rcarriga/nvim-dap-ui',
-        -- Linters
-        'mfussenegger/nvim-lint',
-        -- Formatters
-        -- 'mhartington/formatter.nvim'
-    },
+    -- theme
+    {'rebelot/kanagawa.nvim', },
 
+    --        -- dap
+    --        'mfussenegger/nvim-dap',
+    --        'rcarriga/nvim-dap-ui',
+    --        -- Linters
+    --        --'mfussenegger/nvim-lint',
+    --        'nvim-lua/plenary.nvim',
+    --        'nvimtools/none-ls.nvim',
+    --        -- Formatters
+    --        -- 'mhartington/formatter.nvim'
+    --    },
+
+    -- mason
+    {'williamboman/mason.nvim', },
+    {'williamboman/mason-lspconfig.nvim', },
+    -- lsp-zero
+    {
+        'VonHeikemen/lsp-zero.nvim', 
+        branch = 'v3.x',
+        lazy = true,
+        config = false,
+    },
+    {'neovim/nvim-lspconfig', },
+    {'hrsh7th/cmp-nvim-lsp', },
+    -- autocompletion
+    {'hrsh7th/nvim-cmp', },
+    {'L3MON4D3/LuaSnip', },
+
+    -- treesitter
     {
         "nvim-treesitter/nvim-treesitter", 
-    --    build = ":TSUpdate"
+        -- build = ":TSUpdate"
     },
 
+    -- telescope
+    {'nvim-lua/plenary.nvim', },
     {
-        'nvim-telescope/telescope.nvim', branch = '0.1.x',
-        dependencies = { 'nvim-lua/plenary.nvim' }
+        'nvim-telescope/telescope.nvim', 
+        branch = '0.1.x', 
     },
 
-    'mbbill/undotree',
+    -- undotree
+    {'mbbill/undotree', },
 
-    -- Git related plugins
-    'tpope/vim-fugitive',
-    'tpope/vim-rhubarb',
+    -- Git
+    {'tpope/vim-fugitive', }, 
+    -- GitHub
+    {'tpope/vim-rhubarb', }, 
 
+    -- nvim-tree
+    {"nvim-tree/nvim-web-devicons", }, 
     {
         "nvim-tree/nvim-tree.lua",
         version = "*",
         lazy = false,
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
     }
 })
 
 
 require("plugins.kanagawa")
+require("plugins.lsp-zero")
 require("plugins.mason")
+require("plugins.mason-lspconfig")
 require("plugins.treesitter")
---require("plugins.telescope")
---require("plugins.undotree")
---require("plugins.fugitive")
-require("plugins.nvimtree")
+require("plugins.nvim-tree")
 
 
 

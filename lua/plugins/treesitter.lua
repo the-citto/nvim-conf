@@ -5,7 +5,7 @@ require("nvim-treesitter.configs").setup({
         "bash", 
         "c",
         "c_sharp", 
-        -- "cmake",
+        "cmake",
         "cpp",
         "css", 
         "elixir", 

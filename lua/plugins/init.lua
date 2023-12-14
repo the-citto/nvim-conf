@@ -1,7 +1,10 @@
 
 require("plugins.lazy")
 
---require("plugins.commands")
---require("plugins.layouts")
+require("plugins.pynvim_env")
+
 require("plugins.keymaps")
+
+
+
 
