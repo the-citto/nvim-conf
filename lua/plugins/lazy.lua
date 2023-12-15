@@ -1,6 +1,7 @@
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
+    print("bar")
     vim.fn.system({
         "git",
         "clone",
@@ -27,7 +28,6 @@ require("lazy").setup({
     --        'nvimtools/none-ls.nvim',
     --        -- Formatters
     --        -- 'mhartington/formatter.nvim'
-    --    },
 
     -- mason
     {'williamboman/mason.nvim', },
@@ -73,15 +73,27 @@ require("lazy").setup({
         version = "*",
         lazy = false,
     }
+
+--    {
+--        'akinsho/toggleterm.nvim', 
+--        version = "*", 
+--        config = true
+--    }
+    
 })
 
 
 require("plugins.kanagawa")
+require("plugins.treesitter")
+require("plugins.nvim-tree")
+
 require("plugins.lsp-zero")
 require("plugins.mason")
 require("plugins.mason-lspconfig")
-require("plugins.treesitter")
-require("plugins.nvim-tree")
+
+
+
+
 
 
 
