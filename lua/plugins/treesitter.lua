@@ -1,5 +1,7 @@
 
-require("nvim-treesitter.configs").setup({
+local treesitter_configs = require("nvim-treesitter.configs")
+
+treesitter_configs.setup({
     build = ":TSUpdate",
     ensure_installed = { 
         "bash", 

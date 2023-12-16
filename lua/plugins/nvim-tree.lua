@@ -1,6 +1,8 @@
 
 
-require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
+local nvim_tree = require("nvim-tree")
+
+nvim_tree.setup { -- BEGIN_DEFAULT_OPTS
     on_attach = "default",
     hijack_cursor = false,
     auto_reload_on_write = true,

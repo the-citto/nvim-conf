@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
-    
+ 
     -- theme
     {'rebelot/kanagawa.nvim', },
 
@@ -24,26 +24,29 @@ require("lazy").setup({
     --        'rcarriga/nvim-dap-ui',
     --        -- Linters
     --        --'mfussenegger/nvim-lint',
-    --        'nvim-lua/plenary.nvim',
-    --        'nvimtools/none-ls.nvim',
     --        -- Formatters
     --        -- 'mhartington/formatter.nvim'
 
     -- mason
+    {'neovim/nvim-lspconfig', },
     {'williamboman/mason.nvim', },
     {'williamboman/mason-lspconfig.nvim', },
     -- lsp-zero
-    {
-        'VonHeikemen/lsp-zero.nvim', 
-        branch = 'v3.x',
-        lazy = true,
-        config = false,
-    },
-    {'neovim/nvim-lspconfig', },
+    --{
+    --    'VonHeikemen/lsp-zero.nvim', 
+    --    branch = 'v3.x',
+    --    lazy = true,
+    --    config = false,
+    --},
     {'hrsh7th/cmp-nvim-lsp', },
     -- autocompletion
     {'hrsh7th/nvim-cmp', },
     {'L3MON4D3/LuaSnip', },
+
+    -- linters
+    -- new null-ls
+    --{'nvimtools/none-ls.nvim',}, 
+    --{'jay-babu/mason-null-ls.nvim', }, 
 
     -- treesitter
     {
@@ -79,21 +82,22 @@ require("lazy").setup({
 --        version = "*", 
 --        config = true
 --    }
-    
+
 })
 
 
 require("plugins.kanagawa")
+
 require("plugins.treesitter")
+
 require("plugins.nvim-tree")
 
-require("plugins.lsp-zero")
 require("plugins.mason")
 require("plugins.mason-lspconfig")
 
-
-
-
+--require("plugins.lsp-zero")
+--require("plugins.mason-null-ls")
+--require("plugins.cmp-nvim-lsp")
 
 
 
