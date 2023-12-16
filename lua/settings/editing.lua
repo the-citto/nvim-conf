@@ -22,5 +22,3 @@ vim.o.mouse = 'a'
 
 
 
-
-

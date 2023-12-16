@@ -1,11 +1,8 @@
 
-require("settings")
-require("keymaps")
 
-require("plugins")
+require('startup')
 
-require("colors")
-
+require('settings')
 
 
 
