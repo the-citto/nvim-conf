@@ -76,7 +76,7 @@ local M = {
             --         none = ' ',
             --     },
             -- },
-            -- icons = {
+            icons = {
             --     web_devicons = {
             --         file = {
             --             enable = true,
@@ -87,7 +87,7 @@ local M = {
             --             color = true,
             --         },
             --     },
-            --     git_placement = 'before',
+                git_placement = 'after',
             --     modified_placement = 'after',
             --     diagnostics_placement = 'signcolumn',
             --     bookmarks_placement = 'signcolumn',
@@ -127,7 +127,7 @@ local M = {
             --             ignored = '◌',
             --         },
             --     },
-            -- },
+            },
         },
         -- hijack_directories = {
         --     enable = true,
