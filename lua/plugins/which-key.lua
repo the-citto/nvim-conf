@@ -133,25 +133,32 @@ local opts = {
 
 local mappings = {
     ['<leader>'] = {
-        t = {
-            name = 'Telescope',
-            f = { '<cmd>Telescope find_files<cr>', 'Telescope find_files', },
-            l = { '<cmd>Telescope live_grep<cr>', 'Telescope live_grep', },
-            g = { '<cmd>Telescope git_files<cr>', 'Telescope git_files', },
-            o = { '<cmd>Telescope oldfiles<cr>', 'Telescope oldfiles', },
+        b = {
+            "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+            "Buffers",
         },
-        u = { 
-            name = 'Undotree',
-            t = { '<cmd>UndotreeToggle<cr>', 'UndotreeToggle' },
+        f = {
+            name = 'Telescope',
+            f = { '<cmd>Telescope find_files<cr>', ':Telescope find_files', },
+            g = { '<cmd>Telescope git_files<cr>', ':Telescope git_files', },
+            l = { '<cmd>Telescope live_grep<cr>', ':Telescope live_grep', },
+            o = { '<cmd>Telescope oldfiles<cr>', ':Telescope oldfiles', },
+            s = { '<cmd>Telescope software-licenses find<cr>', ':Telescope software-licenses find', },
         },
         g = { 
             name = 'Git',
-            f = { '<cmd>Git<cr>', 'Git (fugitive git status)' },
+            f = { '<cmd>Git<cr>', ':Git (fugitive git status)' },
             s = {
                 name = 'GitSigns',
-                b = { '<cmd>Gitsigns toggle_current_line_blame<cr>', 'GitSigns toggle_current_line_blame' }
-            }
-        }
+                b = { '<cmd>Gitsigns toggle_current_line_blame<cr>', ':GitSigns toggle_current_line_blame' },
+            },
+        },
+        k = { '<cmd>WhichKey<cr>', ':WhichKey (non-leader keys)' },
+        u = { 
+            name = 'Undotree',
+            t = { '<cmd>UndotreeToggle<cr>', ':UndotreeToggle' },
+        },
+        w = { '<c-w>', '<c-w>' },
     },
 }
 

@@ -22,7 +22,9 @@
   "nvim-web-devicons": { "branch": "master", "commit": "a1425903ab52a0a0460622519e827f224e5b4fee" },
   "nvim.net": { "branch": "master", "commit": "a66c3b2917fb32bba767dd7a55c635f75ea45232" },
   "plenary.nvim": { "branch": "master", "commit": "55d9fe89e33efd26f532ef20223e5f9430c8b0c0" },
+  "telescope-software-licenses.nvim": { "branch": "master", "commit": "fb5fc33b6afc994756e2f372423c365bf66f2256" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "d90956833d7c27e73c621a61f20b29fdb7122709" },
+  "toggleterm.nvim": { "branch": "main", "commit": "cbd041d91b90cd3c02df03fe6133208888f8e008" },
   "undotree": { "branch": "master", "commit": "36ff7abb6b60980338344982ad4cdf03f7961ecd" },
   "vim-fugitive": { "branch": "master", "commit": "59659093581aad2afacedc81f009ed6a4bfad275" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }

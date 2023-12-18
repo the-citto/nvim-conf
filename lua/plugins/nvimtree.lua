@@ -190,11 +190,11 @@ local M = {
         -- },
         actions = {
         --     use_system_clipboard = true,
-        --     change_dir = {
+            change_dir = {
         --         enable = true,
         --         global = false,
-        --         restrict_above_cwd = false,
-        --     },
+                restrict_above_cwd = true,
+            },
         --     expand_all = {
         --         max_folder_discovery = 300,
         --         exclude = {},
