@@ -20,7 +20,7 @@ local M = {
             ---Line-comment keymap
             line = '<C-_>',
             ---Block-comment keymap
-            -- block = 'gb',
+            block = 'cgb',
         },
         -- ---LHS of extra mappings
         -- extra = {
@@ -42,7 +42,7 @@ local M = {
         -- ---Function to call before (un)comment
         -- pre_hook = nil,
         -- ---Function to call after (un)comment
-        -- post_hook = nil,        
+        -- post_hook = nil,
     } 
 }
 

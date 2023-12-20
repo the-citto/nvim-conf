@@ -1,58 +1,31 @@
 
 
 local M = {
-	"hrsh7th/nvim-cmp",
+	'hrsh7th/nvim-cmp',
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-nvim-lua",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-cmdline",
-		"saadparwaiz1/cmp_luasnip",
-		"L3MON4D3/LuaSnip",
+		'L3MON4D3/LuaSnip',
+        'VonHeikemen/lsp-zero.nvim'
 	},
 }
 
 M.config = function()
-	local cmp = require("cmp")
-	vim.opt.completeopt = { "menu", "menuone", "noselect" }
-	cmp.setup({
-		snippet = {
-			expand = function(args)
-				require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-			end,
-		},
-		window = {
-			-- completion = cmp.config.window.bordered(),
-			-- documentation = cmp.config.window.bordered(),
-		},
-		mapping = cmp.mapping.preset.insert({
-			["<C-b>"] = cmp.mapping.scroll_docs(-4),
-			["<C-f>"] = cmp.mapping.scroll_docs(4),
-			["<C-Space>"] = cmp.mapping.complete(),
-            ["<C-e>"] = cmp.mapping.abort(),
-            -- Accept currently selected item. 
-            -- Set `select` to `false` to only confirm explicitly selected items.
-            ["<CR>"] = cmp.mapping.confirm({ select = true }), }),
-        sources = cmp.config.sources({
-            { name = "nvim_lsp" },
-			{ name = "nvim_lua" },
-			{ name = "luasnip" }, -- For luasnip users.
-			-- { name = "orgmode" },
-		}, {
-			{ name = "buffer" },
-			{ name = "path" },
-		}),
-	})
+    local lsp_zero = require('lsp-zero')
+    lsp_zero.extend_cmp()
 
-	cmp.setup.cmdline(":", {
-		mapping = cmp.mapping.preset.cmdline(),
-		sources = cmp.config.sources({
-			{ name = "path" },
-		}, {
-			{ name = "cmdline" },
-		}),
-	})
+    -- And you can configure cmp even more, if you want to.
+    local cmp = require('cmp')
+    local cmp_action = lsp_zero.cmp_action()
+
+    cmp.setup({
+        formatting = lsp_zero.cmp_format(),
+        mapping = cmp.mapping.preset.insert({
+            ['<C-Space>'] = cmp.mapping.complete(),
+            ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+            ['<C-d>'] = cmp.mapping.scroll_docs(4),
+            ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+            ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+        })
+    })
 end
 
 return M

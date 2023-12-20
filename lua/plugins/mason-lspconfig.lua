@@ -2,7 +2,8 @@
 local M = {
     'williamboman/mason-lspconfig.nvim',
     dependencies = {
-        'neovim/nvim-lspconfig'
+        'neovim/nvim-lspconfig',
+        'williamboman/mason.nvim',
     },
     opts = {
         ensure_installed = {

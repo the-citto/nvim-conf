@@ -52,9 +52,9 @@ local M = {
     --     window = {
     --         border = "none", -- none, single, double, shadow
     --         position = "bottom", -- bottom, top
-    --         -- extra window margin [top, right, bottom, left]. 
+    --         -- extra window margin [top, right, bottom, left].
     --         -- When between 0 and 1, will be treated as a percentage of the screen size.
-    --         margin = { 1, 0, 1, 0 }, 
+    --         margin = { 1, 0, 1, 0 },
     --         padding = { 1, 2, 1, 2 }, -- extra window padding [top, right, bottom, left]
     --         winblend = 0, -- value between 0-100 0 for fully opaque and 100 for fully transparent
     --         zindex = 1000, -- positive value to position WhichKey above other floating windows.
@@ -67,7 +67,7 @@ local M = {
     --     },
     --     ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
     --     -- hide mapping boilerplate
-    --     hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "^:", "^ ", "^call ", "^lua " },   
+    --     hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "^:", "^ ", "^call ", "^lua " },
     --     show_help = true, -- show a help message in the command line for using WhichKey
     --     show_keys = true, -- show the currently pressed key and its label as a message in the command line
     --     triggers = "auto", -- automatically setup triggers
@@ -129,12 +129,30 @@ local opts = {
     -- map('n', '<leader>td', gs.toggle_deleted)
     -- -- Text object
     -- map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+-- function _G.set_terminal_keymaps()
+--     local opts = {buffer = 0}
+--     vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+--     vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
+--     vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
+--     vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
+--     vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
+--     vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+--     vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
+-- end
+-- vim.keymap.set('n', '<leader>tff', require('telescope.builtin').find_files, {})
+-- vim.keymap.set('n', '<leader>tlg', require('telescope.builtin').live_grep, {})
+-- vim.keymap.set('n', '<leader>tgf', require('telescope.builtin').git_files, {})
+-- vim.keymap.set('n', '<leader>tof', require('telescope.builtin').oldfiles, {})
+--
 
+-- local buffer_func = function()
+--     require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})
+-- end
 
 local mappings = {
     ['<leader>'] = {
         b = {
-            "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+            "<cmd>lua require'telescope.builtin'.buffers(require'telescope.themes'.get_dropdown{previewer=false})<cr>",
             "Buffers",
         },
         f = {
@@ -145,25 +163,23 @@ local mappings = {
             o = { '<cmd>Telescope oldfiles<cr>', ':Telescope oldfiles', },
             s = { '<cmd>Telescope software-licenses find<cr>', ':Telescope software-licenses find', },
         },
-        g = { 
+        g = {
             name = 'Git',
-            f = { '<cmd>Git<cr>', ':Git (fugitive git status)' },
+            -- f = { '<cmd>Git<cr>', ':Git (fugitive git status)' },
             s = {
                 name = 'GitSigns',
                 b = { '<cmd>Gitsigns toggle_current_line_blame<cr>', ':GitSigns toggle_current_line_blame' },
             },
         },
-        k = { '<cmd>WhichKey<cr>', ':WhichKey (non-leader keys)' },
-        u = { 
-            name = 'Undotree',
-            t = { '<cmd>UndotreeToggle<cr>', ':UndotreeToggle' },
-        },
-        w = { '<c-w>', '<c-w>' },
+        -- u = {
+        --     name = 'Undotree',
+        --     t = { '<cmd>UndotreeToggle<cr>', ':UndotreeToggle' },
+        -- },
     },
 }
 
 M.config = function()
-    require('which-key').register(mappings, opts) 
+    require('which-key').register(mappings, opts)
 end
 
 
