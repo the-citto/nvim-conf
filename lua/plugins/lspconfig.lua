@@ -1,5 +1,5 @@
 
-return {
+local M = {
     'neovim/nvim-lspconfig',
     cmd = {
         'LspInfo', 
@@ -14,27 +14,29 @@ return {
         {'hrsh7th/cmp-nvim-lsp'},
         {'williamboman/mason-lspconfig.nvim'},
     },
-    config = function()
-        -- This is where all the LSP shenanigans will live
-        local lsp_zero = require('lsp-zero')
-        lsp_zero.extend_lspconfig()
-        lsp_zero.on_attach(function(client, bufnr)
-            -- see :help lsp-zero-keybindings
-            -- to learn the available actions
-            lsp_zero.default_keymaps({buffer = bufnr})
-        end)
-        require('mason-lspconfig').setup({
-            ensure_installed = {},
-            handlers = {
-                lsp_zero.default_setup,
-                lua_ls = function()
-                    -- (Optional) Configure lua language server for neovim
-                    local lua_opts = lsp_zero.nvim_lua_ls()
-                    require('lspconfig').lua_ls.setup(lua_opts)
-                end,
-            }
-        })
-    end
 } 
 
+M.config = function()
+    local lspconfig = require('lspconfig')
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    lspconfig.lua_ls.setup {
+        -- capabilities = capabilities,
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = { 'vim' },
+                    disable = { 'trailing-space' },
+                },
+            },
+        }
+    } 
+    lspconfig.pyright.setup {
+        capabilities = capabilities,
+    } 
+    -- lspconfig.jedi_language_server.setup {
+    --     capabilities = capabilities,
+    -- } 
+end 
+
+return M
 

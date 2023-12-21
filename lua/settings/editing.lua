@@ -1,24 +1,25 @@
 
--- default nvim file browser
--- vim.g.loaded_netrw       = 1
--- vim.g.loaded_netrwPlugin = 1
+-- default nvim file bropt.ser
+-- vim.g.lopt.ded_netrw       = 1
+-- vim.g.lopt.ded_netrwPlugin = 1
 
 
 -- tabs stuff
-vim.o.tabstop = 4       -- A TAB character looks like 4 spaces
-vim.o.expandtab = true  -- Pressing the TAB key will insert spaces instead of a TAB character
-vim.o.softtabstop = 4   -- Number of spaces inserted instead of a TAB character
-vim.o.shiftwidth = 4    -- Number of spaces inserted when indenting
+vim.opt.tabstop = 4       -- A TAB character looks like 4 spaces
+vim.opt.expandtab = true  -- Pressing the TAB key will insert spaces instead of a TAB character
+vim.opt.softtabstop = 4   -- Number of spaces inserted instead of a TAB character
+vim.opt.shiftwidth = 4    -- Number of spaces inserted when indenting
 
--- Set highlight on search
-vim.o.hlsearch = false
+-- Set highlight opt. search
+vim.opt.hlsearch = false
 
 -- Make line numbers default
-vim.wo.number = true
+vim.opt.number = true
 
--- Enable mouse mode
-vim.o.mouse = 'a'
+-- Enable mopt.se mode
+vim.opt.mouse = 'a'
 
+vim.opt.scrolloff = 8
 
 
 

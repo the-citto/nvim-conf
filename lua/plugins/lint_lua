@@ -2,6 +2,9 @@
 
 local M = {
     'mfussenegger/nvim-lint',
+    dependencies = {
+        'williamboman/mason.nvim',
+    },
     event = {
         'BufReadPre',
         'BufNewFile',
@@ -13,8 +16,11 @@ M.config = function()
     lint.linters_by_ft = {
         javascript = { 'eslint_d' },
         javascriptreact = { 'eslint_d' },
-        lua = { 'luacheck' },
-        python = { 'pylint' },
+        lua = { 'luacheck', },
+        python = { 
+            'pylint', 
+            'mypy',
+        },
         typescript = { 'eslint_d' },
         typescriptreact = { 'eslint_d' },
     }
