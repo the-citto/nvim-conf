@@ -5,9 +5,27 @@ local M = {
     dependencies = {
         'nvim-tree/nvim-web-devicons',
     },
-    opts = {
+}
+
+
+M.config = function ()
+    -- local api = require('nvim-tree.api')
+    -- local function opts(desc)
+    --     return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    -- end
+
+    -- local core = require "nvim-tree.core"
+    -- local node = core.get_explorer()
+    -- if node then
+    --     print(node.type)
+    -- end
+
+    -- vim.keymap.set('n', 'h',       api.node.navigate.parent,            opts('Parent Directory'))
+    -- vim.keymap.set('n', '<Left>',  api.node.navigate.parent,            opts('Parent Directory'))
+    require'nvim-tree'.setup {
         view = {
             width = 35,
+            -- side = 'left',
         },
         renderer = {
             -- root_folder_label = ':~:s?$?/..?',
@@ -18,44 +36,9 @@ local M = {
                 'readme.md' 
             },
             highlight_git = true,
-            -- highlight_diagnostics = false,
-            -- highlight_opened_files = 'none',
-            -- highlight_modified = 'none',
-            -- highlight_bookmarks = 'none',
-            -- highlight_clipboard = 'name',
+            highlight_diagnostics = true,
             icons = {
                 git_placement = 'after',
-                glyphs = {
-            --         default = '',
-            --         symlink = '',
-            --         bookmark = '󰆤',
-            --         modified = '●',
-            --         folder = {
-            --             arrow_closed = '',
-            --             arrow_open = '',
-            --             default = '',
-            --             open = '',
-            --             empty = '',
-            --             empty_open = '',
-            --             symlink = '',
-            --             symlink_open = '',
-            --         },
-                    git = {
-                        unstaged = '✗',
-                        -- unstaged = ' M',
-                        staged = '✓',
-                        -- staged = ' S',
-                        unmerged = '',
-                        renamed = '➜',
-                        -- renamed = ' R',
-                        untracked = '★',
-                        -- untracked = ' U',
-                        deleted = '',
-                        -- deleted = ' D',
-                        ignored = '◌',
-                        -- ignored = ' I',
-                    },
-                },
             },
         },
         update_focused_file = {
@@ -63,19 +46,7 @@ local M = {
         },
         diagnostics = {
             enable = true,
-        --     show_on_dirs = false,
-        --     show_on_open_dirs = true,
-        --     debounce_delay = 50,
-        --     severity = {
-        --         min = vim.diagnostic.severity.HINT,
-        --         max = vim.diagnostic.severity.ERROR,
-        --     },
-        --     icons = {
-        --         hint = '',
-        --         info = '',
-        --         warning = '',
-        --         error = '',
-        --     },
+            show_on_dirs = true,
         },
         modified = {
             enable = true,
@@ -88,24 +59,13 @@ local M = {
                 restrict_above_cwd = true,
             },
         },
-        -- tab = {
-        --     sync = {
-        --         open = false,
-        --         close = false,
-        --         ignore = {},
-        --     },
-        -- },
-        -- notify = {
-        --     threshold = vim.log.levels.INFO,
-        --     absolute_path = true,
-        -- },
         ui = {
             confirm = {
                 default_yes = true,
             },
         },
     }
-}
+end
 
 return M
 

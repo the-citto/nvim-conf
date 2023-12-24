@@ -7,10 +7,9 @@ local M = {
     },
     opts = {
         ensure_installed = {
-            'tsserver',             -- JavaScript -- TypeScript
             'lua_ls',               -- Lua
             'jedi_language_server', -- Python
-            'mypy',                 -- Python
+            -- 'mypy',                 -- Python
             -- 'pylsp',             -- Python
             'pylyzer',              -- Python
             -- 'pyre',              -- Python
@@ -18,6 +17,7 @@ local M = {
             -- 'sourcery',          -- Python
             'rust_analyzer',        -- Rust
             'taplo',                -- TOML
+            'tsserver',             -- JavaScript -- TypeScript
         },
     }
 }

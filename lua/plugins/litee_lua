@@ -1,0 +1,20 @@
+
+
+local M = {
+    'ldelossa/litee.nvim',
+}
+
+M.config = function ()
+    require('litee.lib').setup({
+    -- tree = {
+    --     icon_set = 'codicons'
+    -- },
+    panel = {
+        orientation = 'right',
+        panel_size  = 35
+    }
+})
+end
+
+return M
+
