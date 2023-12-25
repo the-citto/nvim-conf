@@ -24,8 +24,13 @@ M.config = function()
         settings = {
             Lua = {
                 diagnostics = {
-                    globals = { 'vim' },
-                    disable = { 'trailing-space' },
+                    globals = { 
+                        'vim' 
+                    },
+                    disable = { 
+                        'trailing-space', 
+                        'deprecated' 
+                    },
                 },
             },
         }
