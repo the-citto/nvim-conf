@@ -3,20 +3,16 @@ local M = {
     'ldelossa/litee-filetree.nvim',
     dependencies = {
         'ldelossa/litee.nvim',
-        -- 'nvim-tree/nvim-web-devicons',
         'kyazdani42/nvim-web-devicons',
     }
 }
 
 M.config = function ()
-    -- require'nvim-web-devicons'.setup{}
-    -- require'nvim-web-devicons'.setup{}
-    -- require'litee.filetree'.setup{
-    --     use_web_devicons = false,
-    --     icon_set_custom = {dir = "dir:"},
-    -- }
     require'litee.filetree'.setup{
-        -- use_web_devicons = true,
+        panel = {
+            orientation = 'right',
+            panel_size = 30,
+        }
     }
 end
 
