@@ -35,13 +35,6 @@ local mappings = {
                 b = { '<cmd>Gitsigns toggle_current_line_blame<cr>', ':GitSigns toggle_current_line_blame' },
             },
         },
-        t = {
-            name = 'ToggleTerm',
-            -- l = { '<cmd>ToggleTermSendCurrentLine<cr>', 'ToggleTermSendCurrentLine', },
-            -- l = { ':ToggleTermSendCurrentLine<cr>', 'ToggleTermSendCurrentLine', },
-            p = { '<cmd>lua _Python_Toggle()<cr>', 'lua _PythonToggle', },
-            n = { '<cmd>lua _Node_Toggle()<cr>', 'lua _NodeToggle', },
-        },
         -- u = {
         --     name = 'Undotree',
         --     t = { '<cmd>UndotreeToggle<cr>', ':UndotreeToggle' },
