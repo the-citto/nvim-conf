@@ -35,6 +35,13 @@ local mappings = {
                 b = { '<cmd>Gitsigns toggle_current_line_blame<cr>', ':GitSigns toggle_current_line_blame' },
             },
         },
+        t = {
+            name = 'Trouble',
+            c = { '<cmd>TroubleClose<cr>', ':TroubleClose', },
+            o = { '<cmd>Trouble<cr>', ':Trouble', },
+            r = { '<cmd>TroubleRefresh<cr>', ':TroubleRefresh', },
+            t = { '<cmd>TroubleToggle<cr>', ':TroubleToggle', },
+        },
         -- u = {
         --     name = 'Undotree',
         --     t = { '<cmd>UndotreeToggle<cr>', ':UndotreeToggle' },

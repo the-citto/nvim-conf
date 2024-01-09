@@ -6,8 +6,8 @@ local M = {
         -- compile = false,             -- enable compiling the colorscheme
         -- undercurl = true,            -- enable undercurls
         commentStyle = { italic = false },
-        -- functionStyle = {},
-        keywordStyle = { italic = false},
+        -- functionStyle = { italic = false },
+        keywordStyle = { italic = false },
         -- statementStyle = { bold = true },
         -- typeStyle = {},
         transparent = true,         -- do not set background color

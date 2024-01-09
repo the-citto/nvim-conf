@@ -36,7 +36,7 @@ M.config = function ()
         end,
         view = {
             width = 35,
-            -- side = 'right',
+            side = 'right',
         },
         renderer = {
             -- root_folder_label = ':~:s?$?/..?',
