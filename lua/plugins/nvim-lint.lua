@@ -5,10 +5,10 @@ local M = {
     dependencies = {
         'williamboman/mason.nvim',
     },
-    event = {
-        'BufReadPre',
-        'BufNewFile',
-    },
+    -- event = {
+    --     'BufReadPre',
+    --     'BufNewFile',
+    -- },
 }
 
 M.config = function()
@@ -16,11 +16,8 @@ M.config = function()
     lint.linters_by_ft = {
         javascript = { 'eslint_d' },
         javascriptreact = { 'eslint_d' },
-        lua = { 'luacheck', },
-        python = { 
-            'pylint', 
-            'mypy',
-        },
+        -- lua = { 'luacheck', },
+        python = { 'ruff', },
         typescript = { 'eslint_d' },
         typescriptreact = { 'eslint_d' },
     }

@@ -64,6 +64,7 @@ local send_code = function (pane_id)
         end
         if indent_last > indent_min then vim.cmd('!tmux send-keys -t ' .. pane_id .. ' Enter') end
     end
+    vim.cmd('!tmux send-keys -t ' .. pane_id .. ' Enter')
     vim.api.nvim_input('<esc>')
 end 
 

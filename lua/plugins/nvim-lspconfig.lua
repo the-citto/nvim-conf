@@ -89,13 +89,17 @@ M.config = function()
     lspconfig.cssls.setup { capabilities = capabilities, settings = css_settings }
     -- lspconfig.eslint.setup { capabilities = capabilities, }
     lspconfig.html.setup { capabilities = capabilities, }
+    lspconfig.htmx.setup { capabilities = capabilities, }
     lspconfig.jsonls.setup { capabilities = capabilities, }
     lspconfig.lua_ls.setup { capabilities = capabilities, settings = lua_settings } 
     lspconfig.omnisharp.setup { capabilities = capabilities, }
     lspconfig.pyright.setup { capabilities = capabilities, }
-    lspconfig.sqlls.setup { capabilities = capabilities, }
     lspconfig.r_language_server.setup { capabilities = capabilities, }
+    -- lspconfig.ruff_lsp.setup { capabilities = capabilities, }
     lspconfig.rust_analyzer.setup { capabilities = capabilities, }
+    lspconfig.sqlls.setup { capabilities = capabilities, }
+    lspconfig.taplo.setup { capabilities = capabilities, }
+    lspconfig.volar.setup { capabilities = capabilities, }
     lspconfig.tsserver.setup { capabilities = capabilities, }
 end 
 
