@@ -58,17 +58,27 @@ local send_code = function (pane_id)
         local indent_min = 100
         local indent_last
         local is_string = false
+        local cnt 
         for _, line in ipairs(vim.api.nvim_buf_get_lines(0, v_line - 1, c_line, false)) do
-            if string.find(line, "'''") or string.find(line, '"""') then 
+            cnt = select(2, string.gsub(line, "'''", ''))
+            cnt = cnt + select(2, string.gsub(line, '"""', ''))
+            if math.fmod(cnt, 2) == 1 then 
                 is_string = not is_string 
             end
-            if is_string or line:gsub('^%s+', '') ~= '' then 
+            if is_string then
+                send_clean_code(pane_id, line)
+            elseif line:gsub('^%s+', '') ~= '' then 
                 _, indent_last = string.find(line, '^%s*')
                 indent_min = math.min(indent_min, indent_last)
                 send_clean_code(pane_id, line)
             end
         end
-        if indent_last > indent_min then vim.cmd('!tmux send-keys -t ' .. pane_id .. ' Enter') end
+        if indent_last and indent_last > indent_min then 
+            vim.cmd('!tmux send-keys -t ' .. pane_id .. ' Enter') 
+        end
+        if is_string then
+            print('Incomplete multiline string sent to the terminal!')
+        end 
     end
     vim.api.nvim_input('<esc>')
 end 
