@@ -2,6 +2,10 @@
 return {
     'ray-x/lsp_signature.nvim',
     event = 'VeryLazy',
+    opts = {},
+    config = function (_, opts)
+        require'lsp_signature'.setup() 
+    end
     -- config = function() 
     --     -- require'lsp_signature'.setup() 
     --     require'lsp_signature'.on_attach({
