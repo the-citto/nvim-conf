@@ -76,15 +76,16 @@ local send_code = function (pane_id)
                     send_clean_code(pane_id, line)
                 end
             end
-            if indent_last and indent_last > indent_min then 
-                vim.cmd('!tmux send-keys -t ' .. pane_id .. ' Enter') 
-            end
+            -- if indent_last and indent_last > indent_min then 
+            --     vim.cmd('!tmux send-keys -t ' .. pane_id .. ' Enter') 
+            -- end
             if is_string then
                 print('Incomplete multiline string sent to the terminal!')
             end 
         end
 
     end
+    vim.cmd('!tmux send-keys -t ' .. pane_id .. ' Enter') 
     vim.api.nvim_input('<esc>')
 end 
 
