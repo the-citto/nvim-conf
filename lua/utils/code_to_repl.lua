@@ -85,7 +85,7 @@ local send_code = function (pane_id)
         end
 
     end
-    vim.cmd('!tmux send-keys -t ' .. pane_id .. ' Enter') 
+    -- vim.cmd('!tmux send-keys -t ' .. pane_id .. ' Enter') 
     vim.api.nvim_input('<esc>')
 end 
 
