@@ -14,10 +14,12 @@ vim.opt.shiftwidth = 4    -- Number of spaces inserted when indenting
 vim.opt.hlsearch = false
 -- Make line numbers default
 vim.opt.number = true
+vim.opt.relativenumber = true
 -- scroll-center
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 10
 -- cursor 
 vim.opt.guicursor = 'n-v-c-sm:block,i-ci-ve:hor50,r-cr-o:hor20,a:blinkwait250-blinkoff500-blinkon500'
+vim.opt.cursorline = true
 
 -- Enable mouse mode
 vim.opt.mouse = 'a'
