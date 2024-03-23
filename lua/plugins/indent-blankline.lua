@@ -10,7 +10,7 @@ M.config = function ()
     ibl.setup {
         indent = {
             -- highlight = { 'LineNr' }, 
-            -- char = '|' 
+            char = '▏' 
         },
         scope = {
             enabled = false,

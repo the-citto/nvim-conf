@@ -7,13 +7,13 @@ local M = {
 M.config = function ()
     local kanagawa = require'kanagawa'
     kanagawa.setup{
-        -- compile = false,             -- enable compiling the colorscheme
-        -- undercurl = true,            -- enable undercurls
+        compile = false,             -- enable compiling the colorscheme
+        undercurl = true,            -- enable undercurls
         commentStyle = { italic = false },
         functionStyle = { italic = false },
         keywordStyle = { italic = false },
-        -- statementStyle = { bold = true },
-        -- typeStyle = {},
+        statementStyle = { italic = false },
+        typeStyle = { italic = false },
         transparent = true,         -- do not set background color
         -- dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
         -- terminalColors = true,       -- define vim.g.terminal_color_{0,17}

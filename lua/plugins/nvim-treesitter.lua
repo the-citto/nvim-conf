@@ -19,7 +19,6 @@ M.config = function()
             'cpp',
             'css', 
             'dockerfile',
-            -- 'elixir', 
             'fortran',
             'gitignore',
             'go',

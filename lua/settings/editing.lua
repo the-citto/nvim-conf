@@ -5,10 +5,30 @@
 
 
 -- tabs stuff
-vim.opt.tabstop = 4       -- A TAB character looks like 4 spaces
-vim.opt.expandtab = true  -- Pressing the TAB key will insert spaces instead of a TAB character
-vim.opt.softtabstop = 4   -- Number of spaces inserted instead of a TAB character
-vim.opt.shiftwidth = 4    -- Number of spaces inserted when indenting
+-- vim.opt.tabstop = 4       -- A TAB character looks like 4 spaces
+-- vim.opt.expandtab = true  -- Pressing the TAB key will insert spaces instead of a TAB character
+-- vim.opt.softtabstop = 4   -- Number of spaces inserted instead of a TAB character
+-- vim.opt.shiftwidth = 4    -- Number of spaces inserted when indenting
+
+
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { "*" },
+    callback = function(args) 
+        local indent = 4
+        local ft = vim.bo[args.buf].filetype
+        print(ft)
+        if ft == "r" or ft == "html" then
+            indent = 2
+        elseif ft == "c" then
+            indent = 8
+        end
+        vim.opt.tabstop = indent
+        vim.opt.expandtab = true
+        vim.opt.softtabstop = indent
+        vim.opt.shiftwidth = indent
+    end
+})
+
 
 -- Set highlight opt. search
 vim.opt.hlsearch = false
