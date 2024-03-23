@@ -52,6 +52,16 @@ local css_settings = {
     },
 }
 
+local clang_settings = {}
+local html_settings = {}
+local jsonls_settings = {} 
+local omnisharp_settings = {}
+local pyright_settings = {} 
+local r_language_server_settings = {}
+local rust_analyzer_settings = {}
+local volar_settings = {}
+local tsserver_settings = {}
+
 M.config = function()
     local lspconfig = require('lspconfig')
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -85,22 +95,22 @@ M.config = function()
     -- vim.diagnostic.config(diagnostic_opts)
 
     lspconfig.autotools_ls.setup { capabilities = capabilities, }
-    lspconfig.clangd.setup { capabilities = capabilities, }
+    lspconfig.clangd.setup { capabilities = capabilities, settings = clang_settings }
     lspconfig.cssls.setup { capabilities = capabilities, settings = css_settings }
     -- lspconfig.eslint.setup { capabilities = capabilities, }
-    lspconfig.html.setup { capabilities = capabilities, }
+    lspconfig.html.setup { capabilities = capabilities, settings = html_settings }
     lspconfig.htmx.setup { capabilities = capabilities, }
-    lspconfig.jsonls.setup { capabilities = capabilities, }
+    lspconfig.jsonls.setup { capabilities = capabilities, settings = jsonls_settings }
     lspconfig.lua_ls.setup { capabilities = capabilities, settings = lua_settings } 
-    lspconfig.omnisharp.setup { capabilities = capabilities, }
-    lspconfig.pyright.setup { capabilities = capabilities, }
-    lspconfig.r_language_server.setup { capabilities = capabilities, }
+    lspconfig.omnisharp.setup { capabilities = capabilities, settings = omnisharp_settings }
+    lspconfig.pyright.setup { capabilities = capabilities, settings = pyright_settings }
+    lspconfig.r_language_server.setup { capabilities = capabilities, settings = r_language_server_settings }
     -- lspconfig.ruff_lsp.setup { capabilities = capabilities, }
-    lspconfig.rust_analyzer.setup { capabilities = capabilities, }
+    lspconfig.rust_analyzer.setup { capabilities = capabilities, settings = rust_analyzer_settings }
     lspconfig.sqlls.setup { capabilities = capabilities, }
     lspconfig.taplo.setup { capabilities = capabilities, }
-    lspconfig.volar.setup { capabilities = capabilities, }
-    lspconfig.tsserver.setup { capabilities = capabilities, }
+    lspconfig.volar.setup { capabilities = capabilities, settings = volar_settings }
+    lspconfig.tsserver.setup { capabilities = capabilities, settings = tsserver_settings }
 end 
 
 
