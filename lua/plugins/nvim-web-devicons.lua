@@ -1,20 +1,20 @@
 local M = {
-    'nvim-tree/nvim-web-devicons',
+    "nvim-tree/nvim-web-devicons",
 }
 
 
 M.config = function ()
-    require'nvim-web-devicons'.setup {
+    require"nvim-web-devicons".setup {
         override_by_filename = {
-            ['requirements.in'] = {
+            ["requirements.in"] = {
                 icon = "",
                 color = "#2D4F67",
-                name = 'Requirements'
+                name = "Requirements"
             },
-            ['requirements.txt'] = {
+            ["requirements.txt"] = {
                 icon = "",
                 color = "#2D4F67",
-                name = 'Requirements'
+                name = "Requirements"
             },
         }
     }

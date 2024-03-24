@@ -11,9 +11,9 @@
 -- vim.opt.shiftwidth = 4    -- Number of spaces inserted when indenting
 
 
-vim.api.nvim_create_autocmd('FileType', {
+vim.api.nvim_create_autocmd("FileType", {
     pattern = { "*" },
-    callback = function(args) 
+    callback = function(args)
         local indent = 4
         local ft = vim.bo[args.buf].filetype
         print(ft)
@@ -38,11 +38,12 @@ vim.opt.relativenumber = true
 -- scroll-center
 vim.opt.scrolloff = 10
 -- cursor 
-vim.opt.guicursor = 'n-v-c-sm:block,i-ci-ve:hor50,r-cr-o:hor20,a:blinkwait250-blinkoff500-blinkon500'
+-- vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:hor50,r-cr-o:hor20,a:blinkwait250-blinkoff500-blinkon500"
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver50,r-cr-o:hor20,a:blinkwait250-blinkoff500-blinkon500"
 vim.opt.cursorline = true
 
 -- Enable mouse mode
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 
 

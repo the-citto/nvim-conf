@@ -27,7 +27,7 @@
 
 
 local send_clean_code = function (pane_id, line)
-    local send_keys_prefix = '!tmux send-keys -t ' .. pane_id ..  ' -l \'' 
+    local send_keys_prefix = '!tmux send-keys -t ' .. pane_id ..  ' -l \''
     -- local send_keys_suffix = '\'\\; send-keys -t ' .. pane_id .. ' Enter'
     local send_keys_suffix = '\''
     line = line:gsub("'", "'\\''")
@@ -56,21 +56,21 @@ local send_code = function (pane_id)
         send_clean_code(pane_id, line)
     else
         if mode == 'n' and vim.api.nvim_get_current_line() == "" then
-            vim.cmd('!tmux send-keys -t ' .. pane_id .. ' Enter') 
+            vim.cmd('!tmux send-keys -t ' .. pane_id .. ' Enter')
         else
             local indent_min = 100
             local indent_last
             local is_string = false
-            local cnt 
+            local cnt
             for _, line in ipairs(vim.api.nvim_buf_get_lines(0, v_line - 1, c_line, false)) do
                 cnt = select(2, string.gsub(line, "'''", ''))
                 cnt = cnt + select(2, string.gsub(line, '"""', ''))
-                if math.fmod(cnt, 2) == 1 then 
-                    is_string = not is_string 
+                if math.fmod(cnt, 2) == 1 then
+                    is_string = not is_string
                 end
                 if is_string then
                     send_clean_code(pane_id, line)
-                elseif line:gsub('^%s+', '') ~= '' then 
+                elseif line:gsub('^%s+', '') ~= '' then
                     _, indent_last = string.find(line, '^%s*')
                     indent_min = math.min(indent_min, indent_last)
                     send_clean_code(pane_id, line)
@@ -81,27 +81,27 @@ local send_code = function (pane_id)
             -- end
             if is_string then
                 print('Incomplete multiline string sent to the terminal!')
-            end 
+            end
         end
 
     end
     -- vim.cmd('!tmux send-keys -t ' .. pane_id .. ' Enter') 
     vim.api.nvim_input('<esc>')
-end 
+end
 
 
 vim.keymap.set(
-    { 'v', 'n' }, 
-    '<C-o>', 
+    { 'v', 'n' },
+    '<C-Bslash>',
     function () send_code(2) end,
     { desc = 'Send code to REPL Pane 2' }
 )
-vim.keymap.set(
-    { 'v', 'n' }, 
-    '<C-i>', 
-    function () send_code(3) end,
-    { desc = 'Send code to REPL Pane 3' }
-)
+-- vim.keymap.set(
+--     { 'v', 'n' },
+--     '<C-i>',
+--     function () send_code(3) end,
+--     { desc = 'Send code to REPL Pane 3' }
+-- )
 
 
 

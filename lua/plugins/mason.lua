@@ -1,11 +1,11 @@
 
 
 local M = {
-    'williamboman/mason.nvim',
+    "williamboman/mason.nvim",
     lazy = false,
     opts = {},
 }
 
 
-return M 
+return M
 

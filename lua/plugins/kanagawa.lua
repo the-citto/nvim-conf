@@ -1,11 +1,11 @@
 
 local M = {
-    'rebelot/kanagawa.nvim',
+    "rebelot/kanagawa.nvim",
     lazy = false,
-}  
+}
 
 M.config = function ()
-    local kanagawa = require'kanagawa'
+    local kanagawa = require"kanagawa"
     kanagawa.setup{
         compile = false,             -- enable compiling the colorscheme
         undercurl = true,            -- enable undercurls
@@ -14,23 +14,28 @@ M.config = function ()
         keywordStyle = { italic = false },
         statementStyle = { italic = false },
         typeStyle = { italic = false },
+        overrides = function()
+            return {
+                ["@variable.builtin"] = { italic = false },
+            }
+        end,
         transparent = true,         -- do not set background color
         -- dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
         -- terminalColors = true,       -- define vim.g.terminal_color_{0,17}
         -- add/modify theme and palette colors
-        colors = {                   
+        colors = {
             -- palette = {},
-            theme = { 
-                wave = {}, lotus = {}, dragon = {}, 
+            theme = {
+                wave = {}, lotus = {}, dragon = {},
                 all = {
                     ui = {
-                        bg_gutter = 'none',
-                        -- bg_m3      = '#000000',
-                        -- bg_m2      = '#000000',
-                        -- bg_m1      = '#000000',
-                        -- bg         = '#000000',
-                        -- bg_p1      = '#000000',
-                        bg_p2      = '#0d0c0c',
+                        bg_gutter = "none",
+                        -- bg_m3      = "#000000",
+                        -- bg_m2      = "#000000",
+                        -- bg_m1      = "#000000",
+                        -- bg         = "#000000",
+                        -- bg_p1      = "#000000",
+                        bg_p2      = "#0d0c0c",
                     },
                 },
             },
@@ -40,16 +45,16 @@ M.config = function ()
         --     local theme = colors.theme
         --     return {}
         -- end,
-        -- theme = 'wave',              -- Load 'wave' theme when 'background' option is not set
-        -- -- map the value of 'background' option to a theme
+        -- theme = "wave",              -- Load "wave" theme when "background" option is not set
+        -- -- map the value of "background" option to a theme
         -- background = {               
-        --     dark = 'dragon',           -- try 'dragon' !
-        --     light = 'lotus'
+        --     dark = "dragon",           -- try "dragon" !
+        --     light = "lotus"
         -- },
     }
-    kanagawa.load('dragon')
-end 
+    kanagawa.load("dragon")
+end
 
-return M 
+return M
 
 

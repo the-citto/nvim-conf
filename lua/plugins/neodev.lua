@@ -1,6 +1,6 @@
 
-local M = { 
-    'folke/neodev.nvim', 
+local M = {
+    "folke/neodev.nvim",
     opts = {
         library = {
             enabled = true, -- when not enabled, neodev will not change any settings to the LSP server
@@ -24,7 +24,7 @@ local M = {
         -- much faster, but needs a recent built of lua-language-server
         -- needs lua-language-server >= 3.6.0
         pathStrict = true,
-    } 
+    }
 }
 
 return M
