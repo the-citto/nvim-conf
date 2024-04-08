@@ -15,15 +15,19 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = { "*" },
     callback = function(args)
         local indent = 4
+        local expandtab = true
         local ft = vim.bo[args.buf].filetype
-        print(ft)
+        -- print(ft)
         if ft == "r" or ft == "html" then
             indent = 2
         elseif ft == "c" then
             indent = 8
+        elseif ft == "make" then
+            indent = 8
+            expandtab = false
         end
         vim.opt.tabstop = indent
-        vim.opt.expandtab = true
+        vim.opt.expandtab = expandtab
         vim.opt.softtabstop = indent
         vim.opt.shiftwidth = indent
     end
