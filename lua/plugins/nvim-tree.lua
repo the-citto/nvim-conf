@@ -41,15 +41,26 @@ M.config = function ()
         renderer = {
             -- root_folder_label = ":~:s?$?/..?",
             special_files = {
-                "Cargo.toml",
-                "Makefile",
-                "README.md",
-                "readme.md"
+                -- "Cargo.toml",
+                -- "Makefile",
+                -- "README.md",
+                -- "readme.md"
             },
             highlight_git = true,
             highlight_diagnostics = true,
             icons = {
                 git_placement = "after",
+                glyphs = {
+                    git = {
+                        unstaged = " US",
+                        staged = " S",
+                        unmerged = " UM",
+                        renamed = " R",
+                        deleted = " D",
+                        untracked = " UT",
+                        ignored = " I",
+                    },
+                },
             },
         },
         update_focused_file = {
