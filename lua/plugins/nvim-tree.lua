@@ -36,7 +36,7 @@ M.config = function ()
         end,
         view = {
             width = 35,
-            -- side = "right",
+            side = "right",
         },
         renderer = {
             -- root_folder_label = ":~:s?$?/..?",
@@ -52,13 +52,13 @@ M.config = function ()
                 -- git_placement = "after",
                 glyphs = {
                     git = {
-                        unstaged =  "unstaged   ",
-                        staged =    "staged     ",
-                        unmerged =  "unmerged   ",
-                        renamed =   "renamed    ",
-                        deleted =   "deleted    ",
-                        untracked = "untracked  ",
-                        ignored =   "ignored    ",
+                        unstaged =  "unstaged",
+                        staged =    "staged",
+                        unmerged =  "unmerged",
+                        renamed =   "renamed",
+                        deleted =   "deleted",
+                        untracked = "untracked",
+                        ignored =   "ignored",
                     },
                 },
             },
