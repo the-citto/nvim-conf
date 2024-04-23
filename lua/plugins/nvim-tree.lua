@@ -36,7 +36,7 @@ M.config = function ()
         end,
         view = {
             width = 35,
-            side = "right",
+            -- side = "right",
         },
         renderer = {
             -- root_folder_label = ":~:s?$?/..?",
@@ -49,16 +49,16 @@ M.config = function ()
             highlight_git = true,
             highlight_diagnostics = true,
             icons = {
-                -- git_placement = "after",
+                git_placement = "after",
                 glyphs = {
                     git = {
-                        unstaged =  "unstaged",
-                        staged =    "staged",
-                        unmerged =  "unmerged",
-                        renamed =   "renamed",
-                        deleted =   "deleted",
-                        untracked = "untracked",
-                        ignored =   "ignored",
+                        unstaged =  " -unstaged",
+                        staged =    " -staged",
+                        unmerged =  " -unmerged",
+                        renamed =   " -renamed",
+                        deleted =   " -deleted",
+                        untracked = " -untracked",
+                        ignored =   " -ignored",
                     },
                 },
             },
