@@ -20,9 +20,7 @@ vim.api.nvim_create_autocmd("FileType", {
         -- print(ft)
         if ft == "r" or ft == "html" then
             indent = 2
-        elseif ft == "c" then
-            indent = 8
-        elseif ft == "make" then
+        elseif ft == "c" or ft == "make" then
             indent = 8
             expandtab = false
         end
