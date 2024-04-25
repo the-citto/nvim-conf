@@ -3,6 +3,8 @@
 -- vim.g.lopt.ded_netrw       = 1
 -- vim.g.lopt.ded_netrwPlugin = 1
 
+-- vim.keymap.set({"n", "v", "i"}, "<c-z>", "<cmd>u<cr>", { remap = true, desc = "undo" })
+vim.keymap.set({"n", "v", "i"}, "<c-z>", "<esc>u", { remap = true, desc = "undo" })
 
 -- tabs stuff
 -- vim.opt.tabstop = 4       -- A TAB character looks like 4 spaces
