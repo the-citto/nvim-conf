@@ -25,7 +25,7 @@ local mappings = {
             g = { "<cmd>Telescope git_files<cr>", ":Telescope git_files", },
             l = { "<cmd>Telescope live_grep<cr>", ":Telescope live_grep", },
             o = { "<cmd>Telescope oldfiles<cr>", ":Telescope oldfiles", },
-            s = { "<cmd>Telescope software-licenses find<cr>", ":Telescope software-licenses find", },
+            -- s = { "<cmd>Telescope software-licenses find<cr>", ":Telescope software-licenses find", },
         },
         -- l = {
         --     name = "Lsp",

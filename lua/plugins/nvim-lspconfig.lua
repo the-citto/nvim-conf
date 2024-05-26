@@ -35,6 +35,7 @@ local lua_settings = {
         diagnostics = {
             globals = { "vim" },
             disable = {
+                "missing-fields",
                 -- "trailing-space", 
                 -- "deprecated", 
             },
