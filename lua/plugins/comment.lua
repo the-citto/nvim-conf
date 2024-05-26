@@ -11,14 +11,14 @@ local M = {
         -- -LHS of toggle mappings in NORMAL mode
         toggler = {
             ---Line-comment toggle keymap
-            line = "<C-/>",
+            line = "<C-_>",
             ---Block-comment toggle keymap
             block = "<C-M>",
         },
         ---LHS of operator-pending mappings in NORMAL and VISUAL mode
         opleader = {
             ---Line-comment keymap
-            line = "<C-/>",
+            line = "<C-_>",
             ---Block-comment keymap
             block = "<C-M>",
         },
