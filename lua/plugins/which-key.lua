@@ -27,17 +27,6 @@ local mappings = {
             o = { "<cmd>Telescope oldfiles<cr>", ":Telescope oldfiles", },
             -- s = { "<cmd>Telescope software-licenses find<cr>", ":Telescope software-licenses find", },
         },
-        -- l = {
-        --     name = "Lsp",
-        -- },
-        -- g = {
-        --     name = "Git",
-        --     -- f = { "<cmd>Git<cr>", ":Git (fugitive git status)" },
-        --     s = {
-        --         name = "GitSigns",
-        --         b = { "<cmd>Gitsigns toggle_current_line_blame<cr>", ":GitSigns toggle_current_line_blame" },
-        --     },
-        -- },
         t = {
             name = "Trouble",
             c = { "<cmd>TroubleClose<cr>", ":TroubleClose", },
@@ -45,10 +34,6 @@ local mappings = {
             r = { "<cmd>TroubleRefresh<cr>", ":TroubleRefresh", },
             t = { "<cmd>TroubleToggle<cr>", ":TroubleToggle", },
         },
-        -- u = {
-        --     name = "Undotree",
-        --     t = { "<cmd>UndotreeToggle<cr>", ":UndotreeToggle" },
-        -- },
     },
 }
 

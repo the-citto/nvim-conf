@@ -25,11 +25,11 @@ local M = {
         -- ---LHS of extra mappings
         -- extra = {
         --     ---Add comment on the line above
-        --     above = "gcO",
+        --     above = "<C-_>",
         --     ---Add comment on the line below
-        --     below = "gco",
+        --     below = "<C-_>",
         --     ---Add comment at the end of line
-        --     eol = "gcA",
+        --     eol = "<C-_>",
         -- },
         -- ---Enable keybindings
         -- ---NOTE: If given `false` then the plugin won"t create any mappings
