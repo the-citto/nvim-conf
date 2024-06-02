@@ -29,10 +29,11 @@ local mappings = {
         },
         t = {
             name = "Trouble",
-            c = { "<cmd>TroubleClose<cr>", ":TroubleClose", },
-            o = { "<cmd>Trouble<cr>", ":Trouble", },
-            r = { "<cmd>TroubleRefresh<cr>", ":TroubleRefresh", },
-            t = { "<cmd>TroubleToggle<cr>", ":TroubleToggle", },
+            -- c = { "<cmd>TroubleClose<cr>", ":TroubleClose", },
+            -- o = { "<cmd>Trouble<cr>", ":Trouble", },
+            -- r = { "<cmd>TroubleRefresh<cr>", ":TroubleRefresh", },
+            f = { "<cmd>Trouble diagnostics focus<cr>", ":Trouble diagnostics focus", },
+            t = { "<cmd>Trouble diagnostics toggle<cr>", ":Trouble diagnostics toggle", },
         },
     },
 }
