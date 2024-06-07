@@ -53,6 +53,7 @@ local css_settings = {
     },
 }
 
+local autotools_settings = {}
 local clang_settings = {}
 local html_settings = {}
 local jsonls_settings = {}
@@ -94,7 +95,7 @@ M.config = function()
     -- }
     -- vim.diagnostic.config(diagnostic_opts)
 
-    lspconfig.autotools_ls.setup { capabilities = capabilities, }
+    lspconfig.autotools_ls.setup { capabilities = capabilities, settings = autotools_settings }
     lspconfig.clangd.setup { capabilities = capabilities, settings = clang_settings }
     lspconfig.cssls.setup { capabilities = capabilities, settings = css_settings }
     -- lspconfig.eslint.setup { capabilities = capabilities, }

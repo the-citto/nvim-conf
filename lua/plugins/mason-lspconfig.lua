@@ -7,7 +7,7 @@ local M = {
     },
     opts = {
         ensure_installed = {
-            -- "autotools_ls",         -- Make 
+            -- "autotools_ls@0.0.16",         -- Make 
             -- "clangd",               -- C -- C++
             -- "cssls",
             -- "dockerls",             -- Docker 
