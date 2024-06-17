@@ -99,8 +99,10 @@ M.config = function()
     lspconfig.clangd.setup { capabilities = capabilities, settings = clang_settings }
     lspconfig.cssls.setup { capabilities = capabilities, settings = css_settings }
     -- lspconfig.eslint.setup { capabilities = capabilities, }
+    lspconfig.docker_compose_language_service.setup { capabilities = capabilities, }
+    lspconfig.dockerls.setup { capabilities = capabilities, }
     lspconfig.html.setup { capabilities = capabilities, settings = html_settings }
-    lspconfig.htmx.setup { capabilities = capabilities, }
+    -- lspconfig.htmx.setup { capabilities = capabilities, }
     lspconfig.jsonls.setup { capabilities = capabilities, settings = jsonls_settings }
     lspconfig.lua_ls.setup { capabilities = capabilities, settings = lua_settings }
     lspconfig.omnisharp.setup { capabilities = capabilities, settings = omnisharp_settings }
@@ -112,6 +114,7 @@ M.config = function()
     lspconfig.taplo.setup { capabilities = capabilities, }
     lspconfig.volar.setup { capabilities = capabilities, settings = volar_settings }
     lspconfig.tsserver.setup { capabilities = capabilities, settings = tsserver_settings }
+    lspconfig.yamlls.setup { capabilities = capabilities }
     -- Global mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
     -- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
