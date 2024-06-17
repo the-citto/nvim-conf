@@ -7,10 +7,12 @@ local M = {
     },
 }
 
-
+-- https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt#L782
 M.config = function ()
     local api = require("nvim-tree.api")
     local lib = require("nvim-tree.lib")
+    -- local win_width = vim.api.nvim_win_get_width(0)
+    -- local win_height = vim.api.nvim_win_get_height(0)
     require"nvim-tree".setup {
         on_attach = function (bufnr)
             local opts = { buffer = bufnr }
@@ -34,9 +36,25 @@ M.config = function ()
             vim.keymap.set("n", "<Right>", righty , opts )
             vim.keymap.set("n", "l", righty , opts )
         end,
+        actions = {
+            change_dir = {
+                restrict_above_cwd = true,
+            },
+        },
         view = {
-            width = 35,
+            width = 20,
             -- side = "right",
+            -- float = {
+            --     enable = true,
+            --     open_win_config = {
+            --         relative = "editor",
+            --         border = "rounded",
+            --         width = 50,
+            --         height = 50,
+            --         row = 5,
+            --         column = 5,
+            --     },
+            -- },
         },
         renderer = {
             -- root_folder_label = ":~:s?$?/..?",
@@ -46,19 +64,32 @@ M.config = function ()
                 -- "README.md",
                 -- "readme.md"
             },
+            highlight_opened_files = "all",
+            highlight_modified = "all",
             highlight_git = true,
             highlight_diagnostics = true,
+            -- indent_markers = {
+            --     enable = true,
+            -- },
             icons = {
-                git_placement = "after",
+                -- web_devicons = {
+                --     folder = {
+                --         enable = true,
+                --     },
+                --
+                -- },
+                -- modified_placement = "signcolumn",
+                modified_placement = "before",
+                -- git_placement = "after",
                 glyphs = {
                     git = {
-                        unstaged =  " -unstaged",
-                        staged =    " -staged",
-                        unmerged =  " -unmerged",
-                        renamed =   " -renamed",
-                        deleted =   " -deleted",
-                        untracked = " -untracked",
-                        ignored =   " -ignored",
+                        -- unstaged =  " -unstaged",
+                        -- staged =    " -staged",
+                        -- unmerged =  " -unmerged",
+                        -- renamed =   " -renamed",
+                        -- deleted =   " -deleted",
+                        -- untracked = " -untracked",
+                        -- ignored =   " -ignored",
                     },
                 },
             },
@@ -75,11 +106,6 @@ M.config = function ()
         },
         filters = {
             git_ignored = false,
-        },
-        actions = {
-            change_dir = {
-                restrict_above_cwd = true,
-            },
         },
         ui = {
             confirm = {
