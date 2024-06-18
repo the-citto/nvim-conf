@@ -42,7 +42,7 @@ M.config = function ()
             },
         },
         view = {
-            width = 20,
+            width = 0,
             -- side = "right",
             -- float = {
             --     enable = true,
