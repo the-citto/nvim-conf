@@ -105,6 +105,7 @@ M.config = function()
     -- lspconfig.htmx.setup { capabilities = capabilities, }
     lspconfig.jsonls.setup { capabilities = capabilities, settings = jsonls_settings }
     lspconfig.lua_ls.setup { capabilities = capabilities, settings = lua_settings }
+    lspconfig.marksman.setup { capabilities = capabilities }
     lspconfig.omnisharp.setup { capabilities = capabilities, settings = omnisharp_settings }
     lspconfig.pyright.setup { capabilities = capabilities, settings = pyright_settings }
     lspconfig.r_language_server.setup { capabilities = capabilities, settings = r_language_server_settings }
