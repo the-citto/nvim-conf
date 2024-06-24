@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd("FileType", {
         elseif ft == "c" or ft == "make" then
             indent = 8
             expandtab = false
-        elseif ft == "python" then
+        elseif ft == "python" or ft == "lua" then
             vim.opt.foldmethod = "indent"
             vim.opt.foldcolumn = "4"
             vim.opt.foldlevel = 4
