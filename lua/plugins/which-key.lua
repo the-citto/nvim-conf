@@ -20,6 +20,12 @@ local mappings = {
         --     '<cmd>lua require"telescope.builtin".buffers(require"telescope.themes".get_dropdown{previewer=false})<cr>',
         --     "Buffers",
         -- },
+        q = {
+            name = "quickfix",
+            c = { "<cmd>cclose<cr>", ":cclose", },
+            e = { "<cmd>call setqflist([])<cr><cmd>cclose<cr>", ":call setqflist([]) :cclose", },
+            o = { "<cmd>copen<cr>", ":copen", },
+        },
         s = {
             name = "Telescope",
             c = { "<cmd>Telescope commands<cr>", ":Telescope commands", },
@@ -35,7 +41,8 @@ local mappings = {
             l = { "<cmd>Telescope live_grep<cr>", ":Telescope live_grep", },
             m = { "<cmd>Telescope marks<cr>", ":Telescope marks", },
             o = { "<cmd>Telescope oldfiles<cr>", ":Telescope oldfiles", },
-            -- s = { "<cmd>Telescope software-licenses find<cr>", ":Telescope software-licenses find", },
+            q = { "<cmd>Telescope quickfix<cr>", ":Telescope quickfix", },
+            -- s = { "<cmd>Telescope grep_string<cr>", ":Telescope grep_string", },
         },
         t = {
             name = "Trouble",
