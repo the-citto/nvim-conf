@@ -23,8 +23,8 @@ local mappings = {
         q = {
             name = "quickfix",
             c = { "<cmd>cclose<cr>", ":cclose", },
-            e = { "<cmd>call setqflist([])<cr><cmd>cclose<cr>", ":call setqflist([]) :cclose", },
             o = { "<cmd>copen<cr>", ":copen", },
+            r = { "<cmd>call setqflist([])<cr><cmd>cclose<cr>", "reset quickfix list", },
         },
         s = {
             name = "Telescope",
