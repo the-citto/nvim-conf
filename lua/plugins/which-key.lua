@@ -20,6 +20,7 @@ local mappings = {
         --     '<cmd>lua require"telescope.builtin".buffers(require"telescope.themes".get_dropdown{previewer=false})<cr>',
         --     "Buffers",
         -- },
+        h = { "<cmd>Hardtime toggle<cr>", ":Hardtime toggle" },
         f = { "<cmd>Telescope find_files<cr>", ":Telescope find_files", },
         q = {
             name = "quickfix",
