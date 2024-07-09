@@ -7,7 +7,16 @@ local M = {
         "MunifTanjim/nui.nvim",
         "nvim-lua/plenary.nvim",
     },
-    opts = {},
+    opts = {
+        -- enabled = false,
+        restriction_mode = "hint",
+        disabled_keys = {
+            ["<Up>"] = { },
+            ["<Down>"] = { },
+            ["<Left>"] = { },
+            ["<Right>"] = { },
+        },
+    },
 }
 
 
