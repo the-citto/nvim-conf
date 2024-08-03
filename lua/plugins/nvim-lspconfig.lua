@@ -56,9 +56,12 @@ local css_settings = {
 local autotools_settings = {}
 local clang_settings = {}
 local html_settings = {}
+local jinja_lsp_settings = {}
 local jsonls_settings = {}
 local omnisharp_settings = {}
-local pyright_settings = {}
+local pyright_settings = {
+    -- typeCheckingMode = "basic",
+}
 local r_language_server_settings = {}
 local rust_analyzer_settings = {}
 local volar_settings = {}
@@ -102,14 +105,15 @@ M.config = function()
     lspconfig.docker_compose_language_service.setup { capabilities = capabilities, }
     lspconfig.dockerls.setup { capabilities = capabilities, }
     lspconfig.html.setup { capabilities = capabilities, settings = html_settings }
-    -- lspconfig.htmx.setup { capabilities = capabilities, }
+    lspconfig.htmx.setup { capabilities = capabilities, }
+    lspconfig.jinja_lsp.setup { capabilities = capabilities, settings = jinja_lsp_settings }
     lspconfig.jsonls.setup { capabilities = capabilities, settings = jsonls_settings }
     lspconfig.lua_ls.setup { capabilities = capabilities, settings = lua_settings }
     lspconfig.marksman.setup { capabilities = capabilities }
     lspconfig.omnisharp.setup { capabilities = capabilities, settings = omnisharp_settings }
     lspconfig.pyright.setup { capabilities = capabilities, settings = pyright_settings }
     lspconfig.r_language_server.setup { capabilities = capabilities, settings = r_language_server_settings }
-    -- lspconfig.ruff_lsp.setup { capabilities = capabilities, }
+    lspconfig.ruff_lsp.setup { capabilities = capabilities, }
     lspconfig.rust_analyzer.setup { capabilities = capabilities, settings = rust_analyzer_settings }
     lspconfig.sqlls.setup { capabilities = capabilities, }
     lspconfig.taplo.setup { capabilities = capabilities, }
