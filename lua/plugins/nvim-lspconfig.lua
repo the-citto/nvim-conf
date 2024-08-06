@@ -83,7 +83,7 @@ M.config = function()
     -- --     --     client.resolved_capabilities.document_range_formatting = false
     -- --     -- end
     -- -- end
-    -- local diagnostic_opts = {
+    local diagnostic_opts = {
     --     -- Show gutter sings
     --     -- signs = {
     --     --     -- With highest priority
@@ -94,9 +94,10 @@ M.config = function()
     --     -- Show virtual text only for errors
     --     virtual_text = { severity = { min = "WARN", max = "ERROR" } },
     --     underline = { severity = { min = "WARN", max = "ERROR" } },
+        underline = false,
     --     update_in_insert = false,
-    -- }
-    -- vim.diagnostic.config(diagnostic_opts)
+    }
+    vim.diagnostic.config(diagnostic_opts)
 
     lspconfig.autotools_ls.setup { capabilities = capabilities, settings = autotools_settings }
     lspconfig.clangd.setup { capabilities = capabilities, settings = clang_settings }
