@@ -115,7 +115,7 @@ M.config = function()
     lspconfig.pyright.setup { capabilities = capabilities, settings = pyright_settings }
     lspconfig.r_language_server.setup { capabilities = capabilities, settings = r_language_server_settings }
     lspconfig.ruff_lsp.setup { capabilities = capabilities, }
-    lspconfig.rust_analyzer.setup { capabilities = capabilities, settings = rust_analyzer_settings }
+    -- lspconfig.rust_analyzer.setup { capabilities = capabilities, settings = rust_analyzer_settings }
     lspconfig.sqlls.setup { capabilities = capabilities, }
     lspconfig.taplo.setup { capabilities = capabilities, }
     lspconfig.volar.setup { capabilities = capabilities, settings = volar_settings }
