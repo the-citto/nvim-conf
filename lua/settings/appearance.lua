@@ -4,3 +4,10 @@
 
 -- vim.cmd("colorscheme kanagawa-dragon")
 
+vim.filetype.add({
+    pattern = {
+        ["requirements.*.txt"] = "requirements",
+    },
+})
+
+

@@ -1,4 +1,4 @@
 
--- require('settings.appearance')
+require('settings.appearance')
 require('settings.editing')
 
