@@ -65,7 +65,7 @@ local pyright_settings = {
 local r_language_server_settings = {}
 local rust_analyzer_settings = {}
 local volar_settings = {}
-local tsserver_settings = {}
+local ts_settings = {}
 
 M.config = function()
     local lspconfig = require("lspconfig")
@@ -119,7 +119,7 @@ M.config = function()
     lspconfig.sqlls.setup { capabilities = capabilities, }
     lspconfig.taplo.setup { capabilities = capabilities, }
     lspconfig.volar.setup { capabilities = capabilities, settings = volar_settings }
-    lspconfig.tsserver.setup { capabilities = capabilities, settings = tsserver_settings }
+    lspconfig.ts_ls.setup { capabilities = capabilities, settings = ts_settings }
     lspconfig.yamlls.setup { capabilities = capabilities }
     -- Global mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
