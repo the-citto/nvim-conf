@@ -11,6 +11,16 @@ M.config = function ()
                 color = "#2D4F67",
                 name = "Requirements"
             },
+            ["requirements-tests.in"] = {
+                icon = "",
+                color = "#2D4F67",
+                name = "Requirements"
+            },
+            ["requirements-dev.in"] = {
+                icon = "",
+                color = "#2D4F67",
+                name = "Requirements"
+            },
             ["requirements.txt"] = {
                 icon = "",
                 color = "#2D4F67",
@@ -26,7 +36,6 @@ M.config = function ()
                 color = "#2D4F67",
                 name = "Requirements"
             },
-
         }
     }
 end

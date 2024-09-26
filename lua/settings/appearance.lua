@@ -6,7 +6,7 @@
 
 vim.filetype.add({
     pattern = {
-        ["requirements.*.txt"] = "requirements",
+        ["requirements.*.*"] = "requirements",
     },
 })
 
