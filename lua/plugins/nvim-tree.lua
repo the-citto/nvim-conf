@@ -19,18 +19,16 @@ M.config = function ()
             api.config.mappings.default_on_attach(bufnr)
             local lefty = function ()
                 local node_at_cursor = lib.get_node_at_cursor()
-                if (node_at_cursor.name == ".." or node_at_cursor.nodes) and node_at_cursor.open then
+                if node_at_cursor.nodes and node_at_cursor.open then
                     api.node.open.edit()
-                    -- lib.expand_or_collapse(node_at_cursor)
                 else
                     api.node.navigate.parent()
                 end
             end
             local righty = function ()
                 local node_at_cursor = lib.get_node_at_cursor()
-                if (node_at_cursor.name == ".." or node_at_cursor.nodes) and not node_at_cursor.open then
+                if node_at_cursor.nodes and not node_at_cursor.open then
                     api.node.open.edit()
-                    -- lib.expand_or_collapse(node_at_cursor)
                 end
             end
             vim.keymap.set("n", "h", lefty , opts )
