@@ -64,7 +64,7 @@ M.config = function ()
                 -- "README.md",
                 -- "readme.md"
             },
-            highlight_opened_files = "all",
+            -- highlight_opened_files = "all",
             highlight_modified = "all",
             highlight_git = true,
             highlight_diagnostics = true,
