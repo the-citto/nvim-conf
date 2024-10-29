@@ -54,16 +54,61 @@ local css_settings = {
 }
 
 local autotools_settings = {}
+-- local basedpyright_settings = {
+--     basedpyright = {
+--         venvPath = ".",
+--         venv = ".venv",
+--         include = {
+--             "python",
+--             "tests",
+--         },
+--         exclude = {
+--             "__pycache__",
+--             ".git",
+--             ".venv",
+--             "_old",
+--             "_tmp",
+--         },
+--         --     reportImplicitRelativeImport = "none",
+--         analysis = {
+--             typeCheckingMode = "off",
+--             --     reportImplicitRelativeImport = "none",
+--         --     reportAny = "none",
+--         },
+--     },
+-- }
 local clang_settings = {}
 local html_settings = {}
+-- local jedi_language_server_settings = {}
 local jinja_lsp_settings = {}
 local jsonls_settings = {}
 local omnisharp_settings = {}
+-- local pylsp_settings = {
+--     pylsp = {
+--         plugins = {
+--             -- formatter options
+--             black = { enabled = false },
+--             autopep8 = { enabled = false },
+--             yapf = { enabled = false },
+--             -- linter options
+--             -- pylint = { enabled = true, executable = "pylint" },
+--             pyflakes = { enabled = false },
+--             pycodestyle = { enabled = false },
+--             -- type checker
+--             -- pylsp_mypy = { enabled = true },
+--             -- auto-completion options
+--             -- jedi = {},
+--             jedi_completion = { fuzzy = true },
+--             -- import sorting
+--             -- pyls_isort = { enabled = true },
+--         },
+--     },
+-- }
 local pyright_settings = {
     -- typeCheckingMode = "basic",
 }
 local r_language_server_settings = {}
-local rust_analyzer_settings = {}
+-- local rust_analyzer_settings = {}
 local volar_settings = {}
 local ts_settings = {}
 
@@ -100,6 +145,7 @@ M.config = function()
     vim.diagnostic.config(diagnostic_opts)
 
     lspconfig.autotools_ls.setup { capabilities = capabilities, settings = autotools_settings }
+    -- lspconfig.basedpyright.setup { capabilities = capabilities, settings = basedpyright_settings }
     lspconfig.clangd.setup { capabilities = capabilities, settings = clang_settings }
     lspconfig.cssls.setup { capabilities = capabilities, settings = css_settings }
     -- lspconfig.eslint.setup { capabilities = capabilities, }
@@ -107,11 +153,41 @@ M.config = function()
     lspconfig.dockerls.setup { capabilities = capabilities, }
     lspconfig.html.setup { capabilities = capabilities, settings = html_settings }
     lspconfig.htmx.setup { capabilities = capabilities, }
+    -- lspconfig.jedi_language_server.setup { capabilities = capabilities, settings = jedi_language_server_settings }
     lspconfig.jinja_lsp.setup { capabilities = capabilities, settings = jinja_lsp_settings }
     lspconfig.jsonls.setup { capabilities = capabilities, settings = jsonls_settings }
     lspconfig.lua_ls.setup { capabilities = capabilities, settings = lua_settings }
     lspconfig.marksman.setup { capabilities = capabilities }
     lspconfig.omnisharp.setup { capabilities = capabilities, settings = omnisharp_settings }
+    -- lspconfig.pylsp.setup {
+    --     -- on_attach = custom_attach,
+    --     -- settings = {
+    --     --     pylsp = {
+    --     --         plugins = {
+    --     --             -- formatter options
+    --     --             black = { enabled = false },
+    --     --             autopep8 = { enabled = false },
+    --     --             yapf = { enabled = false },
+    --     --             -- linter options
+    --     --             -- pylint = { enabled = true, executable = "pylint" },
+    --     --             pyflakes = { enabled = false },
+    --     --             pycodestyle = { enabled = false },
+    --     --             -- type checker
+    --     --             -- pylsp_mypy = { enabled = true },
+    --     --             -- auto-completion options
+    --     --             -- jedi = {},
+    --     --             jedi_completion = { fuzzy = true },
+    --     --             -- import sorting
+    --     --             -- pyls_isort = { enabled = true },
+    --     --         },
+    --     --     },
+    --     -- },
+    --     -- flags = {
+    --     --     debounce_text_changes = 200,
+    --     -- },
+    --     capabilities = capabilities,
+    --     settings = pylsp_settings,
+    -- }
     lspconfig.pyright.setup { capabilities = capabilities, settings = pyright_settings }
     lspconfig.r_language_server.setup { capabilities = capabilities, settings = r_language_server_settings }
     lspconfig.ruff_lsp.setup { capabilities = capabilities, }
