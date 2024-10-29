@@ -10,7 +10,7 @@ local M = {
 -- https://github.com/nvim-tree/nvim-tree.lua/blob/master/doc/nvim-tree-lua.txt#L782
 M.config = function ()
     local api = require("nvim-tree.api")
-    local lib = require("nvim-tree.lib")
+    -- local lib = require("nvim-tree.lib")
     -- local win_width = vim.api.nvim_win_get_width(0)
     -- local win_height = vim.api.nvim_win_get_height(0)
     require"nvim-tree".setup {
@@ -18,7 +18,8 @@ M.config = function ()
             local opts = { buffer = bufnr }
             api.config.mappings.default_on_attach(bufnr)
             local lefty = function ()
-                local node_at_cursor = lib.get_node_at_cursor()
+                -- local node_at_cursor = lib.get_node_at_cursor()
+                local node_at_cursor = api.tree.get_node_under_cursor()
                 if node_at_cursor.nodes and node_at_cursor.open then
                     api.node.open.edit()
                 else
@@ -26,7 +27,8 @@ M.config = function ()
                 end
             end
             local righty = function ()
-                local node_at_cursor = lib.get_node_at_cursor()
+                -- local node_at_cursor = lib.get_node_at_cursor()
+                local node_at_cursor = api.tree.get_node_under_cursor()
                 if node_at_cursor.nodes and not node_at_cursor.open then
                     api.node.open.edit()
                 end
