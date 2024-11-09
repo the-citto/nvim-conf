@@ -82,7 +82,7 @@ local html_settings = {}
 -- local jedi_language_server_settings = {}
 local jinja_lsp_settings = {}
 local jsonls_settings = {}
-local omnisharp_settings = {}
+-- local omnisharp_settings = {}
 -- local pylsp_settings = {
 --     pylsp = {
 --         plugins = {
@@ -109,7 +109,7 @@ local pyright_settings = {
 }
 local r_language_server_settings = {}
 -- local rust_analyzer_settings = {}
-local volar_settings = {}
+-- local volar_settings = {}
 local ts_settings = {}
 
 M.config = function()
@@ -151,6 +151,7 @@ M.config = function()
     -- lspconfig.eslint.setup { capabilities = capabilities, }
     lspconfig.docker_compose_language_service.setup { capabilities = capabilities, }
     lspconfig.dockerls.setup { capabilities = capabilities, }
+    lspconfig.gopls.setup { capabilities = capabilities, }
     lspconfig.html.setup { capabilities = capabilities, settings = html_settings }
     lspconfig.htmx.setup { capabilities = capabilities, }
     -- lspconfig.jedi_language_server.setup { capabilities = capabilities, settings = jedi_language_server_settings }
@@ -158,7 +159,7 @@ M.config = function()
     lspconfig.jsonls.setup { capabilities = capabilities, settings = jsonls_settings }
     lspconfig.lua_ls.setup { capabilities = capabilities, settings = lua_settings }
     lspconfig.marksman.setup { capabilities = capabilities }
-    lspconfig.omnisharp.setup { capabilities = capabilities, settings = omnisharp_settings }
+    -- lspconfig.omnisharp.setup { capabilities = capabilities, settings = omnisharp_settings }
     -- lspconfig.pylsp.setup {
     --     -- on_attach = custom_attach,
     --     -- settings = {
@@ -190,11 +191,11 @@ M.config = function()
     -- }
     lspconfig.pyright.setup { capabilities = capabilities, settings = pyright_settings }
     lspconfig.r_language_server.setup { capabilities = capabilities, settings = r_language_server_settings }
-    lspconfig.ruff_lsp.setup { capabilities = capabilities, }
+    -- lspconfig.ruff_lsp.setup { capabilities = capabilities, }
     -- lspconfig.rust_analyzer.setup { capabilities = capabilities, settings = rust_analyzer_settings }
     lspconfig.sqlls.setup { capabilities = capabilities, }
     lspconfig.taplo.setup { capabilities = capabilities, }
-    lspconfig.volar.setup { capabilities = capabilities, settings = volar_settings }
+    -- lspconfig.volar.setup { capabilities = capabilities, settings = volar_settings }
     lspconfig.ts_ls.setup { capabilities = capabilities, settings = ts_settings }
     lspconfig.yamlls.setup { capabilities = capabilities }
     -- Global mappings.
