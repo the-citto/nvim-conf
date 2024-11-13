@@ -104,9 +104,9 @@ local jsonls_settings = {}
 --         },
 --     },
 -- }
-local pyright_settings = {
-    -- typeCheckingMode = "basic",
-}
+-- local pyright_settings = {
+--     -- typeCheckingMode = "basic",
+-- }
 local r_language_server_settings = {}
 -- local rust_analyzer_settings = {}
 -- local volar_settings = {}
@@ -189,7 +189,9 @@ M.config = function()
     --     capabilities = capabilities,
     --     settings = pylsp_settings,
     -- }
-    lspconfig.pyright.setup { capabilities = capabilities, settings = pyright_settings }
+    -- lspconfig.pyre.setup { capabilities = capabilities, }
+    -- lspconfig.pylyzer.setup { capabilities = capabilities, }
+    lspconfig.pyright.setup { capabilities = capabilities }
     lspconfig.r_language_server.setup { capabilities = capabilities, settings = r_language_server_settings }
     lspconfig.ruff.setup { capabilities = capabilities, }
     -- lspconfig.ruff_lsp.setup { capabilities = capabilities, }

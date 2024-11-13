@@ -13,14 +13,15 @@ local M = {
 
 M.config = function()
     local lint = require("lint")
-    lint.linters.mypy.args = {}
-        -- '--show-column-numbers',
-        -- '--show-error-end',
-        -- '--hide-error-context',
-        -- '--no-color-output',
-        -- '--no-error-summary',
+    -- lint.linters.mypy.cmd = "dmypy"
+    lint.linters.mypy.args = {
+        '--show-column-numbers',
+        '--show-error-end',
+        '--hide-error-context',
+        '--no-color-output',
+        '--no-error-summary',
         -- '--no-pretty',
-    -- }
+    }
     lint.linters_by_ft = {
         -- javascript = { "eslint_d" },
         -- javascriptreact = { "eslint_d" },
