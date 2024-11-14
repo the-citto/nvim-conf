@@ -53,7 +53,7 @@ local css_settings = {
     },
 }
 
-local autotools_settings = {}
+-- local autotools_settings = {}
 -- local basedpyright_settings = {
 --     basedpyright = {
 --         venvPath = ".",
@@ -144,7 +144,7 @@ M.config = function()
     }
     vim.diagnostic.config(diagnostic_opts)
 
-    lspconfig.autotools_ls.setup { capabilities = capabilities, settings = autotools_settings }
+    -- lspconfig.autotools_ls.setup { capabilities = capabilities }
     -- lspconfig.basedpyright.setup { capabilities = capabilities, settings = basedpyright_settings }
     lspconfig.clangd.setup { capabilities = capabilities, settings = clang_settings }
     lspconfig.cssls.setup { capabilities = capabilities, settings = css_settings }
