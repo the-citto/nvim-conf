@@ -13,7 +13,7 @@ local M = {
 
 M.config = function()
     local lint = require("lint")
-    -- lint.linters.mypy.cmd = "dmypy"
+    -- lint.linters.mypy.cmd = "dmypy run"
     lint.linters.mypy.args = {
         '--show-column-numbers',
         '--show-error-end',

@@ -82,31 +82,6 @@ local html_settings = {}
 -- local jedi_language_server_settings = {}
 local jinja_lsp_settings = {}
 local jsonls_settings = {}
--- local omnisharp_settings = {}
--- local pylsp_settings = {
---     pylsp = {
---         plugins = {
---             -- formatter options
---             black = { enabled = false },
---             autopep8 = { enabled = false },
---             yapf = { enabled = false },
---             -- linter options
---             -- pylint = { enabled = true, executable = "pylint" },
---             pyflakes = { enabled = false },
---             pycodestyle = { enabled = false },
---             -- type checker
---             -- pylsp_mypy = { enabled = true },
---             -- auto-completion options
---             -- jedi = {},
---             jedi_completion = { fuzzy = true },
---             -- import sorting
---             -- pyls_isort = { enabled = true },
---         },
---     },
--- }
--- local pyright_settings = {
---     -- typeCheckingMode = "basic",
--- }
 local r_language_server_settings = {}
 -- local rust_analyzer_settings = {}
 -- local volar_settings = {}
@@ -162,9 +137,6 @@ M.config = function()
     -- lspconfig.omnisharp.setup { capabilities = capabilities, settings = omnisharp_settings }
     -- lspconfig.pylsp.setup {
     --     -- on_attach = custom_attach,
-    --     -- settings = {
-    --     --     pylsp = {
-    --     --         plugins = {
     --     --             -- formatter options
     --     --             black = { enabled = false },
     --     --             autopep8 = { enabled = false },
@@ -180,21 +152,37 @@ M.config = function()
     --     --             jedi_completion = { fuzzy = true },
     --     --             -- import sorting
     --     --             -- pyls_isort = { enabled = true },
-    --     --         },
-    --     --     },
-    --     -- },
     --     -- flags = {
     --     --     debounce_text_changes = 200,
     --     -- },
     --     capabilities = capabilities,
-    --     settings = pylsp_settings,
+    --     settings = {
+    --         pylsp = {
+    --             plugins = {
+    --                 -- formatter options
+    --                 black = { enabled = false },
+    --                 autopep8 = { enabled = false },
+    --                 yapf = { enabled = false },
+    --                 -- linter options
+    --                 pylint = { enabled = false },
+    --                 pyflakes = { enabled = false },
+    --                 pycodestyle = { enabled = false },
+    --                 -- type checker
+    --                 pylsp_mypy = { enabled = true },
+    --                 -- auto-completion options
+    --                 jedi = { enabled = false },
+    --                 -- jedi_completion = { fuzzy = true },
+    --                 -- import sorting
+    --                 pyls_isort = { enabled = false },
+    --             },
+    --         },
+    --     },
     -- }
     -- lspconfig.pyre.setup { capabilities = capabilities, }
     -- lspconfig.pylyzer.setup { capabilities = capabilities, }
     lspconfig.pyright.setup { capabilities = capabilities }
     lspconfig.r_language_server.setup { capabilities = capabilities, settings = r_language_server_settings }
     lspconfig.ruff.setup { capabilities = capabilities, }
-    -- lspconfig.ruff_lsp.setup { capabilities = capabilities, }
     -- lspconfig.rust_analyzer.setup { capabilities = capabilities, settings = rust_analyzer_settings }
     lspconfig.sqlls.setup { capabilities = capabilities, }
     lspconfig.taplo.setup { capabilities = capabilities, }
