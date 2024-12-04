@@ -36,6 +36,16 @@ M.config = function ()
                 color = "#2D4F67",
                 name = "Requirements"
             },
+            ["py.typed"] = {
+                icon = "",
+                color = "#2D4F67",
+                name = "py.typed"
+            },
+            [".python-version"] = {
+                icon = "",
+                color = "#2D4F67",
+                name = ".python-version"
+            },
         }
     }
 end
