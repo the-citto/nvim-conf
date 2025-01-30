@@ -27,7 +27,6 @@ M.config = function()
         -- javascriptreact = { "eslint_d" },
         -- lua = { "luacheck", },
         python = {
-            -- "ruff",
             "mypy",
         },
         -- typescript = { "eslint_d" },
