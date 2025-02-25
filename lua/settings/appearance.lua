@@ -4,6 +4,7 @@
 
 -- vim.cmd("colorscheme kanagawa-dragon")
 
+-- :lua print(vim.bo.filetype)
 vim.filetype.add({
     pattern = {
         ["requirements.*.*"] = "requirements",
@@ -11,6 +12,7 @@ vim.filetype.add({
         -- ["dev.txt"] = "requirements",
         -- ["tests.in"] = "requirements",
         -- ["tests.txt"] = "requirements",
+        [".gcloudignore"] = "gitignore",
     },
 })
 
