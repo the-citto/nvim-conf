@@ -46,6 +46,11 @@ M.config = function ()
                 color = "#2D4F67",
                 name = ".python-version"
             },
+            [".gcloudignore"] = {
+                icon = "",
+                color = "#2D4F67",
+                name = ".gcloudignore"
+            }
         }
     }
 end
