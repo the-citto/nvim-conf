@@ -48,7 +48,7 @@ M.config = function ()
             },
             [".gcloudignore"] = {
                 icon = "",
-                color = "#2D4F67",
+                color = "#658594",
                 name = ".gcloudignore"
             }
         }
