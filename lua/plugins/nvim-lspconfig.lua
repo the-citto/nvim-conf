@@ -84,7 +84,7 @@ local jinja_lsp_settings = {}
 local jsonls_settings = {}
 local r_language_server_settings = {}
 -- local rust_analyzer_settings = {}
--- local volar_settings = {}
+local volar_settings = {}
 local ts_settings = {}
 
 M.config = function()
@@ -186,7 +186,8 @@ M.config = function()
     -- lspconfig.rust_analyzer.setup { capabilities = capabilities, settings = rust_analyzer_settings }
     lspconfig.sqlls.setup { capabilities = capabilities, }
     lspconfig.taplo.setup { capabilities = capabilities, }
-    -- lspconfig.volar.setup { capabilities = capabilities, settings = volar_settings }
+    lspconfig.tailwindcss.setup { capabilities = capabilities, }
+    lspconfig.volar.setup { capabilities = capabilities, settings = volar_settings }
     lspconfig.ts_ls.setup { capabilities = capabilities, settings = ts_settings }
     lspconfig.yamlls.setup { capabilities = capabilities }
     -- Global mappings.

@@ -25,7 +25,7 @@ M.config = function()
             "go",
             "html",
             "htmldjango",
-            -- "jinja2",
+            "jinja",
             "javascript",
             "jsdoc",
             "json",
