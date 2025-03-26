@@ -9,14 +9,14 @@ local M = {
 
 M.config = function()
     require ("mason-nvim-lint").setup{
-        -- ensure_installed = {
+        ensure_installed = {
         --     "cpplint",
         --     "cmakelang",
         --     "cmakelint",
         --     "curlylint",
         --     "eslint_d",
         --     "luacheck",
-        --     "mypy",
+            -- "mypy",
         --     "pydocstyle",
         --     "pylint",
         --     "pyproject-flake8",
@@ -28,7 +28,8 @@ M.config = function()
         --     "ts-standard",
         --     "typos",
         --     "yamllint",
-        -- },
+        },
+        automatic_install = true,
     }
 end
 
