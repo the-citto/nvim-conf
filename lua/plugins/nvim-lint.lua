@@ -67,7 +67,8 @@ M.config = function()
         {
             group = lint_augroup,
             callback = function()
-                lint.try_lint("mypy")
+                lint.try_lint()
+                -- lint.try_lint("mypy")
             end,
         }
     )
