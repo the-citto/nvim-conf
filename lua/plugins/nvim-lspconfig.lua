@@ -136,6 +136,7 @@ M.config = function()
     lspconfig.marksman.setup { capabilities = capabilities }
     lspconfig.mypy.setup { capabilities = capabilities }
     lspconfig.pyright.setup { capabilities = capabilities }
+    -- lspconfig.pylsp.setup { capabilities = capabilities }
     lspconfig.r_language_server.setup { capabilities = capabilities, settings = r_language_server_settings }
     lspconfig.ruff.setup { capabilities = capabilities, }
     -- lspconfig.rust_analyzer.setup { capabilities = capabilities, settings = rust_analyzer_settings }
