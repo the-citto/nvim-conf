@@ -14,14 +14,14 @@ local M = {
     dependencies = {
 --         -- {"folke/neoconf.nvim"},
 --         -- {"hrsh7th/cmp-nvim-lsp"},
---         -- { "saghen/blink.cmp" },
-        {"williamboman/mason.nvim"},
         {"williamboman/mason-lspconfig.nvim"},
+        {"saghen/blink.cmp"},
     },
 }
 
 M.config = function()
     local lspconfig = require("lspconfig")
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
 --     -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 --     -- for server, config in pairs(opts.servers) do
 --     --   -- passing config.capabilities to blink.cmp merges with the capabilities in your
@@ -44,23 +44,38 @@ M.config = function()
 --     lspconfig.htmx.setup { capabilities = capabilities }
 --     lspconfig.jinja_lsp.setup { capabilities = capabilities }
 --     lspconfig.jsonls.setup { capabilities = capabilities }
---     lspconfig.lua_ls.setup {
---         capabilities = capabilities,
---         settings = {
---             Lua = {
---                 diagnostics = {
---                     globals = { "vim" },
---                     disable = {
---                         "missing-fields",
---                     },
---                 },
---             },
---         }
---     }
+    lspconfig.lua_ls.setup {
+        capabilities = capabilities,
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = { "vim" },
+                    disable = {
+                        "missing-fields",
+                    },
+                },
+            },
+        }
+    }
 --     lspconfig.marksman.setup { capabilities = capabilities }
---     lspconfig.pyright.setup { capabilities = capabilities }
-    lspconfig.pyright.setup{}
---     lspconfig.ruff.setup { capabilities = capabilities }
+    -- lspconfig.pylsp.setup {
+    --     capabilities = capabilities,
+    --     settings = {
+    --         pylsp = {
+    --             plugins = {
+    --                 pycodestyle = { enabled = false },
+    --                 pyflakes = { enabled = false },
+    --                 pylsp_mypy = {
+    --                     enable = true,
+    --                     -- overrides = { "--python-executable", ".venv/bin/python", true },
+    --                     -- report_progress = true,
+    --                 },
+    --             },
+    --         },
+    --     },
+    -- }
+    lspconfig.pyright.setup { capabilities = capabilities }
+    lspconfig.ruff.setup { capabilities = capabilities }
 --     lspconfig.sqlls.setup { capabilities = capabilities }
 --     lspconfig.taplo.setup { capabilities = capabilities }
 --     lspconfig.tailwindcss.setup { capabilities = capabilities }
