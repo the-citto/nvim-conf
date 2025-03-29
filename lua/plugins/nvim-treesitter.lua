@@ -33,7 +33,7 @@ M.config = function()
             "lua",
             "make",
             "markdown",
-            "org",
+            -- "org",
             "powershell",
             "python",
             "query",

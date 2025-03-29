@@ -1,7 +1,0 @@
-
-local M = {
-    "kshenoy/vim-signature",
-}
-
-return M
-
