@@ -4,13 +4,12 @@ local M = {
     "mfussenegger/nvim-lint",
 }
 
-local mypy_path = "/home/lexxx/.dev/python/pysymptotic/.venv/bin/mypy"
+local mypy_path = "mypy"
 local _, linux_path = next(vim.fs.find({"mypy"}, {type = "file"}))
 if linux_path ~= nil then
     mypy_path = linux_path
 end
 local _, win_path = next(vim.fs.find({"mypy.exe"}, {type = "file"}))
-print(win_path)
 if win_path ~= nil then
     mypy_path = win_path
 end
