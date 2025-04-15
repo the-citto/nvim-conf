@@ -5,11 +5,11 @@ local M = {
 }
 
 local mypy_path = "mypy"
-local _, linux_path = next(vim.fs.find({"mypy"}, {type = "file"}))
+local _, linux_path = next(vim.fs.find({"mypy"}, {type = "file", path = "./.venv/bin"}))
 if linux_path ~= nil then
     mypy_path = linux_path
 end
-local _, win_path = next(vim.fs.find({"mypy.exe"}, {type = "file"}))
+local _, win_path = next(vim.fs.find({"mypy.exe"}, {type = "file", path = "./.venv/Scripts"}))
 if win_path ~= nil then
     mypy_path = win_path
 end
