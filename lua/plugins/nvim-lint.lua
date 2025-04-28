@@ -18,7 +18,10 @@ end
 M.config = function()
     local lint = require("lint")
     lint.linters_by_ft = {
-        python = {"mypy"},
+        python = {
+            "flake8",
+            "mypy",
+        },
     }
     lint.linters.mypy.cmd = mypy_path
     vim.api.nvim_create_autocmd(
