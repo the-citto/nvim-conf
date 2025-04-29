@@ -50,7 +50,15 @@ M.config = function ()
                 icon = "",
                 color = "#658594",
                 name = ".gcloudignore"
-            }
+            },
+            [".coveragerc"] = {
+                icon = "",
+                name = ".coveragerc",
+            },
+            [".flake8"] = {
+                icon = "",
+                name = ".flake8",
+            },
         }
     }
 end

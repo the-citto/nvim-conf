@@ -8,11 +8,9 @@
 vim.filetype.add({
     pattern = {
         ["requirements.*.*"] = "requirements",
-        -- ["dev.in"] = "requirements",
-        -- ["dev.txt"] = "requirements",
-        -- ["tests.in"] = "requirements",
-        -- ["tests.txt"] = "requirements",
         [".gcloudignore"] = "gitignore",
+        [".coveragerc"] = "dosini",
+        [".flake8"] = "dosini",
     },
 })
 
