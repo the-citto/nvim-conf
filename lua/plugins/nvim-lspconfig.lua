@@ -11,10 +11,6 @@ local M = {
 M.config = function()
     local lspconfig = require("lspconfig")
     local capabilities = require('blink.cmp').get_lsp_capabilities()
-    vim.diagnostic.config{
-        virtual_text = true,
-        underline = false,
-    }
     lspconfig.clangd.setup { capabilities = capabilities }
     lspconfig.cssls.setup { capabilities = capabilities }
     lspconfig.docker_compose_language_service.setup { capabilities = capabilities }
@@ -41,14 +37,19 @@ M.config = function()
     }
     lspconfig.marksman.setup { capabilities = capabilities }
     lspconfig.pyright.setup { capabilities = capabilities }
-    lspconfig.ruff.setup { capabilities = capabilities }
+    -- lspconfig.ruff.setup { capabilities = capabilities }
     lspconfig.rust_analyzer.setup { capabilities = capabilities }
     lspconfig.sqlls.setup { capabilities = capabilities }
     lspconfig.taplo.setup { capabilities = capabilities }
     lspconfig.tailwindcss.setup { capabilities = capabilities }
     lspconfig.volar.setup { capabilities = capabilities }
+    lspconfig.terraformls.setup { capabilities = capabilities }
     lspconfig.ts_ls.setup { capabilities = capabilities }
     lspconfig.yamlls.setup { capabilities = capabilities }
+    vim.diagnostic.config{
+        virtual_text = true,
+        underline = false,
+    }
     vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)

@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd("FileType", {
         -- if ft == "r" or ft == "html" or ft == "htmldjango" then
         if ft == "r" then
             indent = 2
-        elseif ft == "c" or ft == "make" then
+        elseif ft == "make" then
             indent = 8
             expandtab = false
         -- elseif ft == "python" or ft == "lua" then

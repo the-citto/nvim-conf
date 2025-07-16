@@ -8,6 +8,7 @@ local mypy_path = "mypy"
 local _, linux_path = next(vim.fs.find({"mypy"}, {type = "file", path = "./.venv/bin"}))
 if linux_path ~= nil then
     mypy_path = linux_path
+    -- mypy_path = vim.fn.getcwd() .. "/" .. linux_path
 end
 local _, win_path = next(vim.fs.find({"mypy.exe"}, {type = "file", path = "./.venv/Scripts"}))
 if win_path ~= nil then
@@ -21,6 +22,7 @@ M.config = function()
         python = {
             "flake8",
             "mypy",
+            -- "ruff",
         },
     }
     lint.linters.mypy.cmd = mypy_path
