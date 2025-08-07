@@ -43,7 +43,8 @@ M.config = function()
     lspconfig.taplo.setup { capabilities = capabilities }
     lspconfig.tailwindcss.setup { capabilities = capabilities }
     lspconfig.volar.setup { capabilities = capabilities }
-    lspconfig.terraformls.setup { capabilities = capabilities }
+    -- lspconfig.terraformls.setup { capabilities = capabilities }
+    lspconfig.tflint.setup { capabilities = capabilities }
     lspconfig.ts_ls.setup { capabilities = capabilities }
     lspconfig.yamlls.setup { capabilities = capabilities }
     vim.diagnostic.config{

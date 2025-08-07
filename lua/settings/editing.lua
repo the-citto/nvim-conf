@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd("FileType", {
         local ft = vim.bo[args.buf].filetype
         -- print(ft)
         -- if ft == "r" or ft == "html" or ft == "htmldjango" then
-        if ft == "r" then
+        if ft == "r" or ft == "yaml" then
             indent = 2
         elseif ft == "make" then
             indent = 8

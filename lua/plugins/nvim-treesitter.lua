@@ -41,6 +41,7 @@ M.config = function()
             "rust",
             "scss",
             "sql",
+            "terraform",
             "toml",
             "typescript",
             "vim",

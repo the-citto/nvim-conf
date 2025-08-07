@@ -24,6 +24,9 @@ M.config = function()
             "mypy",
             -- "ruff",
         },
+        -- terraform = {
+        --     "terraform",
+        -- },
     }
     lint.linters.mypy.cmd = mypy_path
     vim.api.nvim_create_autocmd(
