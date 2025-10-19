@@ -12,16 +12,16 @@ M.config = function()
             comment_visual = '<C-_>',
         },
     })
-    require("mini.indentscope").setup({
-        draw = {
-            delay = 10,
-        },
-        symbol = "▏",
-        options = {
-            border = "top",
-            indent_at_cursor = false,
-        },
-    })
+    -- require("mini.indentscope").setup({
+    --     draw = {
+    --         delay = 10,
+    --     },
+    --     symbol = "▏",
+    --     options = {
+    --         border = "top",
+    --         indent_at_cursor = false,
+    --     },
+    -- })
     require('mini.diff').setup()
     -- require('mini.git').setup()
 end
