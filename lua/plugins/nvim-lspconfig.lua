@@ -9,44 +9,42 @@ local M = {
 }
 
 M.config = function()
-    local lspconfig = require("lspconfig")
     local capabilities = require('blink.cmp').get_lsp_capabilities()
-    lspconfig.clangd.setup { capabilities = capabilities }
-    lspconfig.cssls.setup { capabilities = capabilities }
-    lspconfig.docker_compose_language_service.setup { capabilities = capabilities }
-    lspconfig.dockerls.setup { capabilities = capabilities }
-    lspconfig.gh_actions_ls.setup { capabilities = capabilities }
-    lspconfig.golangci_lint_ls.setup { capabilities = capabilities }
-    lspconfig.gopls.setup { capabilities = capabilities }
-    lspconfig.html.setup { capabilities = capabilities }
-    lspconfig.htmx.setup { capabilities = capabilities }
-    lspconfig.jinja_lsp.setup { capabilities = capabilities }
-    lspconfig.jsonls.setup { capabilities = capabilities }
-    lspconfig.lua_ls.setup {
+    vim.lsp.config("clangd", { capabilities = capabilities })
+    vim.lsp.config("cssls", { capabilities = capabilities })
+    vim.lsp.config("docker_compose_language_service", { capabilities = capabilities })
+    vim.lsp.config("dockerls", { capabilities = capabilities })
+    vim.lsp.config("gh_actions_ls", { capabilities = capabilities })
+    vim.lsp.config("golangci_lint_ls", { capabilities = capabilities })
+    vim.lsp.config("gopls", { capabilities = capabilities })
+    vim.lsp.config("html", { capabilities = capabilities })
+    vim.lsp.config("htmx", { capabilities = capabilities })
+    vim.lsp.config("jinja_lsp", { capabilities = capabilities })
+    vim.lsp.config("jsonls", { capabilities = capabilities })
+    vim.lsp.config("lua_ls", {
         capabilities = capabilities,
         settings = {
             Lua = {
                 diagnostics = {
-                    globals = { "vim" },
+                    -- globals = { "vim" },
                     disable = {
                         "missing-fields",
                     },
                 },
             },
         }
-    }
-    lspconfig.marksman.setup { capabilities = capabilities }
-    lspconfig.pyright.setup { capabilities = capabilities }
-    -- lspconfig.ruff.setup { capabilities = capabilities }
-    lspconfig.rust_analyzer.setup { capabilities = capabilities }
-    lspconfig.sqlls.setup { capabilities = capabilities }
-    lspconfig.taplo.setup { capabilities = capabilities }
-    lspconfig.tailwindcss.setup { capabilities = capabilities }
-    lspconfig.volar.setup { capabilities = capabilities }
-    -- lspconfig.terraformls.setup { capabilities = capabilities }
-    lspconfig.tflint.setup { capabilities = capabilities }
-    lspconfig.ts_ls.setup { capabilities = capabilities }
-    lspconfig.yamlls.setup { capabilities = capabilities }
+    })
+    vim.lsp.config("marksman", { capabilities = capabilities })
+    vim.lsp.config("pyright", { capabilities = capabilities })
+    vim.lsp.config("ruff", { capabilities = capabilities })
+    vim.lsp.config("rust_analyzer", { capabilities = capabilities })
+    vim.lsp.config("sqlls", { capabilities = capabilities })
+    vim.lsp.config("taplo", { capabilities = capabilities })
+    vim.lsp.config("tailwindcss", { capabilities = capabilities })
+    vim.lsp.config("terraformls", { capabilities = capabilities })
+    vim.lsp.config("tflint", { capabilities = capabilities })
+    vim.lsp.config("ts_ls", { capabilities = capabilities })
+    vim.lsp.config("yamlls", { capabilities = capabilities })
     vim.diagnostic.config{
         virtual_text = true,
         underline = false,
@@ -63,4 +61,5 @@ end
 
 
 return M
+
 
