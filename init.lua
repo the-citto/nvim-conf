@@ -73,7 +73,7 @@ local send_clean_code = function (pane_id, line)
     line = line:gsub('!', '\\!')
     line = line:gsub('%%', '\\%%')
     line = line:gsub('#', '\\#')
-    line = line:gsub(';', ';;')
+    line = line:gsub(';$', ';;')
     vim.cmd( send_keys_prefix .. line .. send_keys_suffix )
     vim.cmd('!tmux send-keys -t ' .. pane_id .. ' Enter')
 end
