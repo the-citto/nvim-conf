@@ -47,7 +47,7 @@ vim.opt.scrolloff = 10
 vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver50,r-cr-o:hor20,a:blinkwait250-blinkoff500-blinkon500"
 vim.opt.cursorline = true
 vim.opt.mouse = "a"
-
+vim.opt.wrap = false
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 ---@diagnostic disable-next-line: undefined-field
