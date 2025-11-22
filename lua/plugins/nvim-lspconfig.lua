@@ -8,6 +8,8 @@ local M = {
     },
 }
 
+-- REMEMBER: update Mason lspcinfig
+
 M.config = function()
     local capabilities = require('blink.cmp').get_lsp_capabilities()
     vim.lsp.config("clangd", { capabilities = capabilities })
@@ -26,7 +28,6 @@ M.config = function()
         settings = {
             Lua = {
                 diagnostics = {
-                    -- globals = { "vim" },
                     disable = {
                         "missing-fields",
                     },
@@ -44,6 +45,7 @@ M.config = function()
     vim.lsp.config("terraformls", { capabilities = capabilities })
     vim.lsp.config("tflint", { capabilities = capabilities })
     vim.lsp.config("ts_ls", { capabilities = capabilities })
+    vim.lsp.config("ty", { capabilities = capabilities })
     vim.lsp.config("yamlls", { capabilities = capabilities })
     vim.diagnostic.config{
         virtual_text = true,
