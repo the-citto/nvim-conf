@@ -60,7 +60,9 @@ M.config = function()
     vim.lsp.config("ty", {
         capabilities = capabilities,
         settings = {
-            cmd = {ty_path, "server" },
+            yt = {
+                cmd = {ty_path, "server" },
+            },
         },
     })
     vim.lsp.config("yamlls", { capabilities = capabilities })
