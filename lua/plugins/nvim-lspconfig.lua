@@ -10,18 +10,6 @@ local M = {
 
 -- REMEMBER: update Mason lspcinfig
 
--- local ty_path = "ty"
--- local _, linux_path = next(vim.fs.find({"ty"}, {type = "file", path = "./.venv/bin"}))
--- if linux_path ~= nil then
---     ty_path = linux_path
---     -- mypy_path = vim.fn.getcwd() .. "/" .. linux_path
--- end
--- local _, win_path = next(vim.fs.find({"ty.exe"}, {type = "file", path = "./.venv/Scripts"}))
--- if win_path ~= nil then
---     ty_path = win_path
--- end
-
-
 M.config = function()
     local capabilities = require('blink.cmp').get_lsp_capabilities()
     vim.lsp.config("clangd", { capabilities = capabilities })
@@ -57,14 +45,7 @@ M.config = function()
     vim.lsp.config("terraformls", { capabilities = capabilities })
     vim.lsp.config("tflint", { capabilities = capabilities })
     vim.lsp.config("ts_ls", { capabilities = capabilities })
-    vim.lsp.config("ty", {
-        capabilities = capabilities,
-        -- settings = {
-        --     yt = {
-        --         cmd = {ty_path, "server" },
-        --     },
-        -- },
-    })
+    -- vim.lsp.config("ty", { capabilities = capabilities })
     vim.lsp.config("yamlls", { capabilities = capabilities })
     vim.diagnostic.config{
         virtual_text = true,
