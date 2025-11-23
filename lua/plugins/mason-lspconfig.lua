@@ -30,7 +30,7 @@ local M = {
             "terraformls",
             "tflint",
             "ts_ls",
-            "ty",
+            -- "ty",
             "yamlls",
         }
     }
