@@ -12,8 +12,7 @@ if linux_path ~= nil then
 end
 local _, win_path = next(vim.fs.find({"mypy.exe"}, {type = "file", path = "./.venv/Scripts"}))
 if win_path ~= nil then
-    -- mypy_path = win_path
-    mypy_path = "uv.exe run mypy"
+    mypy_path = win_path
 end
 
 
