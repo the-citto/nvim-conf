@@ -6,6 +6,7 @@ local M = {
 
 M.config = function()
     -- require("mini.pairs").setup()
+    require("mini.extra").setup()
     require("mini.comment").setup({
         mappings = {
             comment_line = '<C-_>',
