@@ -63,9 +63,6 @@ M.config = function()
         callback = function(ev)
             local client = vim.lsp.get_client_by_id(ev.data.client_id)
             if not client then return end
-            -- if client.name == "ty" and vim.env.WSL_DISTRO_NAME then
-            --     vim.lsp.stop_client(client.id)
-            -- end
             for _, no_jump_server in ipairs(no_jump_servers) do
                 if no_jump_server == client.name then
                     client.server_capabilities.definitionProvider = false
