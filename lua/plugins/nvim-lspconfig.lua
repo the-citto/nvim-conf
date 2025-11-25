@@ -45,9 +45,7 @@ M.config = function()
     vim.lsp.config("terraformls", { capabilities = capabilities })
     vim.lsp.config("tflint", { capabilities = capabilities })
     vim.lsp.config("ts_ls", { capabilities = capabilities })
-    if not vim.env.WSL_DISTRO_NAME then
-        vim.lsp.config("ty", { capabilities = capabilities })
-    end
+    vim.lsp.config("ty", { capabilities = capabilities })
     vim.lsp.config("yamlls", { capabilities = capabilities })
     vim.diagnostic.config{
         virtual_text = true,
