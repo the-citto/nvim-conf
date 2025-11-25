@@ -15,11 +15,11 @@ local M = {
 --     mypy_path = win_path
 -- end
 
-local mypy_cmd = "mypy"
-local _, win_python = next(vim.fs.find({"python.exe"}, {type = "file", path = "./.venv/Scripts"}))
-if win_python ~= nil then
-    mypy_cmd = mypy_cmd .. " --python-executable " .. win_python
-end
+-- local mypy_cmd = "mypy"
+-- local _, win_python = next(vim.fs.find({"python.exe"}, {type = "file", path = "./.venv/Scripts"}))
+-- if win_python ~= nil then
+--     mypy_cmd = mypy_cmd .. " --python-executable " .. win_python
+-- end
 
 M.config = function()
     local lint = require("lint")
@@ -34,7 +34,7 @@ M.config = function()
         -- },
     }
     -- lint.linters.mypy.cmd = mypy_path
-    lint.linters.mypy.cmd = mypy_cmd
+    -- lint.linters.mypy.cmd = mypy_cmd
     vim.api.nvim_create_autocmd(
         {"BufEnter", "BufWritePost", "InsertLeave"},
         {
