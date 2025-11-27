@@ -51,7 +51,8 @@ M.config = function()
     local cwd = vim.g.CWD
     if vim.fn.getcwd():match( "/([^/]+)") == "mnt" then
         vim.lsp.config("ty", {
-            cmd = { "pwsh.exe", "-Command", '"' .. cwd .. '/.venv/Scripts/ty.exe server"' }
+            -- cmd = { "pwsh.exe", "-Command", '"' .. cwd .. '/.venv/Scripts/ty.exe server"' }
+            cmd = { cwd .. "/.venv/Scripts/ty.exe", "server" }
         })
     end
     vim.diagnostic.config{
