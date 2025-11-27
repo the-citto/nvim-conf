@@ -48,13 +48,9 @@ M.config = function()
     vim.lsp.config("ty", { capabilities = capabilities })
     vim.lsp.config("yamlls", { capabilities = capabilities })
     -- if vim.env.WSL_DISTRO_NAME then
-    local cwd = vim.g.CWD
-    if vim.fn.getcwd():match( "/([^/]+)") == "mnt" then
-        vim.lsp.config("ty", {
-            -- cmd = { "pwsh.exe", "-Command", '"' .. cwd .. '/.venv/Scripts/ty.exe server"' }
-            cmd = { cwd .. "/.venv/Scripts/ty.exe", "server" }
-        })
-    end
+    -- if vim.fn.getcwd():match( "/([^/]+)") == "mnt" then
+    --     vim.lsp.config("ty", {})
+    -- end
     vim.diagnostic.config{
         virtual_text = true,
         underline = false,

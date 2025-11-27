@@ -1,6 +1,4 @@
 
-vim.g.CWD = vim.fn.getcwd()
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
