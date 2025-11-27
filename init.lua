@@ -1,4 +1,6 @@
 
+vim.g.CWD = vim.fn.getcwd()
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -66,8 +68,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
-
-vim.g.CWD = vim.fn.getcwd()
 
 local send_clean_code = function (pane_id, line)
     local send_keys_prefix = '!tmux send-keys -t ' .. pane_id ..  ' -l \''
