@@ -46,11 +46,13 @@ M.config = function()
     vim.lsp.config("tflint", { capabilities = capabilities })
     vim.lsp.config("ts_ls", { capabilities = capabilities })
     vim.lsp.config("ty", { capabilities = capabilities })
+    vim.lsp.config("yamlls", { capabilities = capabilities })
     -- if vim.env.WSL_DISTRO_NAME then
     if vim.fn.getcwd():match( "/([^/]+)") == "mnt" then
-        vim.lsp.config("ty", { cmd = {} })
+        vim.lsp.config("ty", {
+            cmd = { "pwrs.exe", "-Command", '"' .. vim.g.CWD .. '/.venv/Scripts/ty.exe server"' }
+        })
     end
-    vim.lsp.config("yamlls", { capabilities = capabilities })
     vim.diagnostic.config{
         virtual_text = true,
         underline = false,
