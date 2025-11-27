@@ -48,9 +48,9 @@ M.config = function()
     vim.lsp.config("ty", { capabilities = capabilities })
     vim.lsp.config("yamlls", { capabilities = capabilities })
     -- if vim.env.WSL_DISTRO_NAME then
-    -- if vim.fn.getcwd():match( "/([^/]+)") == "mnt" then
-    --     vim.lsp.config("ty", {})
-    -- end
+    if vim.fn.getcwd():match( "/([^/]+)") == "mnt" then
+        vim.lsp.config("ty", {})
+    end
     vim.diagnostic.config{
         virtual_text = true,
         underline = false,
