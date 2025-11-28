@@ -49,7 +49,7 @@ M.config = function()
     vim.lsp.config("yamlls", { capabilities = capabilities })
     -- if vim.env.WSL_DISTRO_NAME then
     if vim.fn.getcwd():match( "/([^/]+)") == "mnt" then
-        vim.lsp.config("ty", {})
+        vim.lsp.config("ty", { cmd = {} })
     end
     vim.diagnostic.config{
         virtual_text = true,
@@ -67,6 +67,7 @@ M.config = function()
             for _, no_jump_server in ipairs(no_jump_servers) do
                 if no_jump_server == client.name then
                     client.server_capabilities.definitionProvider = false
+                    client.server_capabilities.completionProvider = nil
                 end
             end
             vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
