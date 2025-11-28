@@ -1,4 +1,13 @@
 
+local _, linux_py_libs = next(vim.fs.find("site-packages", { type = "directory", path = ".venv/lib"}))
+local _, win_py_libs = next(vim.fs.find("site-packages", { type = "directory", path = ".venv/Lib"}))
+
+if linux_py_libs ~= nil then
+    vim.fn.setenv("PYTHONPATH", linux_py_libs)
+elseif win_py_libs ~= nil then
+    vim.fn.setenv("PYTHONPATH", win_py_libs)
+end
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
