@@ -4,22 +4,6 @@ local M = {
     "mfussenegger/nvim-lint",
 }
 
--- local mypy_path = "mypy"
--- local _, linux_path = next(vim.fs.find({"mypy"}, {type = "file", path = "./.venv/bin"}))
--- if linux_path ~= nil then
---     mypy_path = linux_path
---     -- mypy_path = vim.fn.getcwd() .. "/" .. linux_path
--- end
--- local _, win_path = next(vim.fs.find({"mypy.exe"}, {type = "file", path = "./.venv/Scripts"}))
--- if win_path ~= nil then
---     mypy_path = win_path
--- end
-
--- local mypy_cmd = "mypy"
--- local _, win_python = next(vim.fs.find({"python.exe"}, {type = "file", path = "./.venv/Scripts"}))
--- if win_python ~= nil then
---     mypy_cmd = mypy_cmd .. " --python-executable " .. win_python
--- end
 
 M.config = function()
     local lint = require("lint")
@@ -33,8 +17,6 @@ M.config = function()
         --     "terraform",
         -- },
     }
-    -- lint.linters.mypy.cmd = mypy_path
-    -- lint.linters.mypy.cmd = mypy_cmd
     vim.api.nvim_create_autocmd(
         {"BufEnter", "BufWritePost", "InsertLeave"},
         {
