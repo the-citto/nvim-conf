@@ -35,7 +35,7 @@ M.config = function()
 			callback = function(args)
 				vim.keymap.set({ "v", "n" }, "<leader>w", function()
 					local file_path = vim.fn.expand("%")
-					local sys_args = { timeout_ms = 500, text = true }
+					local sys_args = { timeout = 500, text = true }
 					vim.cmd("write")
 					vim.system({ "pwsh.exe", "-Command", "uv run black --quiet " .. file_path }, sys_args)
 					vim.system(
