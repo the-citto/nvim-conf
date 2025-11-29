@@ -31,14 +31,12 @@ M.config = function()
 	})
 	if vim.fn.getenv("IS_WSL_WIN") == "1" then
 		vim.api.nvim_create_autocmd("FileType", {
-			pattern = "*.py",
+			pattern = "python",
 			callback = function(args)
-				vim.keymap.set(
-					{ "v", "n" },
-					"<leader>w",
-					vim.cmd("write"),
-					{ desc = "Format and save", buffer = args.buf }
-				)
+				vim.keymap.set({ "v", "n" }, "<leader>w", function()
+					vim.cmd("write")
+					vim.fn.system({ "pwsh.exe", "-Command", "uv run black --quiet ." })
+				end, { desc = "Format and save", buffer = args.buf })
 			end,
 		})
 	end
