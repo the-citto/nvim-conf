@@ -4,48 +4,27 @@ local M = {
 
 local python_wsl_win_formatters = function()
 	if vim.fn.getenv("IS_WSL_WIN") == "1" then
-		local util = require("conform.util")
 		return {
 			isort = {
-				-- inherit = false,
-				command = "pwsh.exe",
-				args = {
-					"-Command",
-					"uv run isort --stdout --line-ending lf --filename $FILENAME -",
-				},
-				-- cwd = util.root_file({
-				-- 	".isort.cfg",
-				-- 	"pyproject.toml",
-				-- 	"setup.py",
-				-- 	"setup.cfg",
-				-- 	"tox.ini",
-				-- 	".editorconfig",
-				-- }),
+				command = 'pwsh.exe -Command "uv run isort --line-ending lf $FILENAME"',
+				-- args = {
+				-- 	"-Command",
+				-- 	"uv run isort --stdout --line-ending lf --filename $FILENAME -",
+				-- },
 			},
 			black = {
-				-- inherit = false,
-				command = "pwsh.exe",
-				args = {
-					"-Command",
-					"uv run black --stdin-filename $FILENAME --quiet -",
-				},
-				-- cwd = util.root_file({
-				-- 	"pyproject.toml",
-				-- }),
+				command = 'pwsh.exe -Command "uv run black --quiet $FILENAME"',
+				-- 	args = {
+				-- 		"-Command",
+				-- 		"uv run black --stdin-filename $FILENAME --quiet -",
+				-- 	},
 			},
 			ruff = {
-				-- inherit = false,
-				command = "pwsh.exe",
-				args = {
-					"-Command",
-					"uv run ruff check --fix --force-exclude --exit-zero --no-cache --stdin-filename $FILENAME -",
-				},
-				-- stdin = true,
-				-- cwd = require("conform.util").root_file({
-				-- 	"pyproject.toml",
-				-- 	"ruff.toml",
-				-- 	".ruff.toml",
-				-- }),
+				command = 'pwsh.exe -Command "uv run ruff check --fix --force-exclude --exit-zero --no-cache $FILENAME"',
+				-- args = {
+				-- 	"-Command",
+				-- 	"uv run ruff check --fix --force-exclude --exit-zero --no-cache --stdin-filename $FILENAME -",
+				-- },
 			},
 		}
 	else
