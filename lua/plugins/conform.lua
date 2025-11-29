@@ -7,45 +7,45 @@ local python_wsl_win_formatters = function()
 		local util = require("conform.util")
 		return {
 			isort = {
-				inherit = false,
+				-- inherit = false,
 				command = "pwsh.exe",
 				args = {
 					"-Command",
 					"uv run isort --stdout --line-ending lf --filename $FILENAME -",
 				},
-				cwd = util.root_file({
-					".isort.cfg",
-					"pyproject.toml",
-					"setup.py",
-					"setup.cfg",
-					"tox.ini",
-					".editorconfig",
-				}),
+				-- cwd = util.root_file({
+				-- 	".isort.cfg",
+				-- 	"pyproject.toml",
+				-- 	"setup.py",
+				-- 	"setup.cfg",
+				-- 	"tox.ini",
+				-- 	".editorconfig",
+				-- }),
 			},
 			black = {
-				inherit = false,
+				-- inherit = false,
 				command = "pwsh.exe",
 				args = {
 					"-Command",
 					"uv run black --stdin-filename $FILENAME --quiet -",
 				},
-				cwd = util.root_file({
-					"pyproject.toml",
-				}),
+				-- cwd = util.root_file({
+				-- 	"pyproject.toml",
+				-- }),
 			},
 			ruff = {
-				inherit = false,
+				-- inherit = false,
 				command = "pwsh.exe",
 				args = {
 					"-Command",
 					"uv run ruff check --fix --force-exclude --exit-zero --no-cache --stdin-filename $FILENAME -",
 				},
-				stdin = true,
-				cwd = require("conform.util").root_file({
-					"pyproject.toml",
-					"ruff.toml",
-					".ruff.toml",
-				}),
+				-- stdin = true,
+				-- cwd = require("conform.util").root_file({
+				-- 	"pyproject.toml",
+				-- 	"ruff.toml",
+				-- 	".ruff.toml",
+				-- }),
 			},
 		}
 	else
