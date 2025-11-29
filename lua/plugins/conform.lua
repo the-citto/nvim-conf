@@ -67,7 +67,7 @@ M.config = function()
 			command = "pwsh.exe",
 			args = {
 				"-Command",
-				"uv run ruff check --fix --force-exclude --exit-zero --no-cache --stdin-filename $FILENAME -",
+				'"uv run ruff check --fix --force-exclude --exit-zero --no-cache --stdin-filename $FILENAME -"',
 			},
 		}
 		conform.formatters.black = {
@@ -75,7 +75,7 @@ M.config = function()
 			command = "pwsh.exe",
 			args = {
 				"-Command",
-				"--stdin-filename $FILENAME --quiet -",
+				'"--stdin-filename $FILENAME --quiet -"',
 			},
 		}
 		conform.formatters.isort = {
