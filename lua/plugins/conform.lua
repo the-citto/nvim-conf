@@ -63,7 +63,7 @@ M.config = function()
 	})
 	if vim.fn.getenv("IS_WSL_WIN") == "1" then
 		conform.formatters.ruff = {
-			inherit = false,
+			-- inherit = false,
 			command = "pwsh.exe",
 			args = {
 				"-Command",
@@ -71,7 +71,7 @@ M.config = function()
 			},
 		}
 		conform.formatters.black = {
-			inherit = false,
+			-- inherit = false,
 			command = "pwsh.exe",
 			args = {
 				"-Command",
@@ -79,7 +79,7 @@ M.config = function()
 			},
 		}
 		conform.formatters.isort = {
-			inherit = false,
+			-- inherit = false,
 			command = "",
 			args = {
 				"",
