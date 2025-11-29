@@ -13,7 +13,7 @@ local wsl_win_formatters = function(args)
 	-- 	print("'uv.exe' not found.")
 	-- 	return nil
 	-- end
-	local file_path = vim.api.nvim_buf_get_name(args.buf)
+	local file_path = vim.api.nvim_buf_get_name(args.buf):gsub("/mnt/c", "C:")
 	local pwsh_cmd = 'pwsh.exe -Command "uv run '
 	local ruff_cmd = "ruff check --fix "
 	local ruff_check = vim.fn.system(pwsh_cmd .. ruff_cmd .. file_path .. '"')
