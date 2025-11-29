@@ -67,7 +67,22 @@ M.config = function()
 			command = "pwsh.exe",
 			args = {
 				"-Command",
-				"uv run ruff check --fix $FILENAME",
+				"uv run ruff check --fix --force-exclude --exit-zero --no-cache --stdin-filename $FILENAME -",
+			},
+		}
+		conform.formatters.black = {
+			inherit = false,
+			command = "pwsh.exe",
+			args = {
+				"-Command",
+				"--stdin-filename $FILENAME --quiet -",
+			},
+		}
+		conform.formatters.isort = {
+			inherit = false,
+			command = "",
+			args = {
+				"",
 			},
 		}
 	end
