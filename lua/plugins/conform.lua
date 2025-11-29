@@ -29,7 +29,7 @@ M.config = function()
 			require("conform").format({ bufnr = args.buf, timeout_ms = 500 })
 		end,
 	})
-	vim.api.nvim_create_autocmd("BufWritePre", {
+	vim.api.nvim_create_autocmd("BufWritePost", {
 		pattern = "*.py",
 		callback = function(args)
 			local file_path = vim.fn.expand("%")
