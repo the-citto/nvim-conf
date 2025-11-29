@@ -4,13 +4,24 @@ local M = {
 
 local python_wsl_win_formatters = function()
 	if vim.fn.getenv("IS_WSL_WIN") == "1" then
+		local util = require("conform.util")
 		return {
 			isort = {
+				inherit = false,
 				command = "pwsh.exe",
 				args = {
 					"-Command",
-					"uv run isort --stdout --line-ending --filename $FILENAME -",
+					"uv run isort --stdout --line-ending lf --filename $FILENAME -",
 				},
+				cwd = util.root_file({
+					-- https://pycqa.github.io/isort/docs/configuration/config_files.html
+					".isort.cfg",
+					"pyproject.toml",
+					"setup.py",
+					"setup.cfg",
+					"tox.ini",
+					".editorconfig",
+				}),
 			},
 			black = {
 				command = "pwsh.exe",
