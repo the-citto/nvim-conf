@@ -6,37 +6,23 @@ local M = {
 
 local python_linters = function ()
     local all = {
-            "flake8",
-                "mypy",
+        "flake8",
+        "mypy",
     }
-             if vim.fn.getcwd():match( "/([^/]+)") == "mnt" then
-                for idx, name in ipairs(all) do
-                    if name == "mypy" then
-                        table.remove(all, idx)
-                    end
-                end
+    if vim.fn.getcwd():match( "/([^/]+)") == "mnt" then
+        for idx, name in ipairs(all) do
+            if name == "mypy" then
+                table.remove(all, idx)
             end
-            return all
+        end
+    end
+    return all
 end
 
 M.config = function()
     local lint = require("lint")
     lint.linters_by_ft = {
         python = python_linters()
-        -- python = function ()
-        --     local py_linters = {
-        --         "flake8",
-        --         "mypy",
-        --     }
-        --     if vim.fn.getcwd():match( "/([^/]+)") == "mnt" then
-        --         for idx, name in ipairs(py_linters) do
-        --             if name == "mypy" then
-        --                 table.remove(py_linters, idx)
-        --             end
-        --         end
-        --     end
-        --     return py_linters
-        -- end
         -- terraform = {
         --     "terraform",
         -- },
