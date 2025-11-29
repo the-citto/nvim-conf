@@ -14,7 +14,6 @@ local python_wsl_win_formatters = function()
 					"uv run isort --stdout --line-ending lf --filename $FILENAME -",
 				},
 				cwd = util.root_file({
-					-- https://pycqa.github.io/isort/docs/configuration/config_files.html
 					".isort.cfg",
 					"pyproject.toml",
 					"setup.py",
@@ -24,18 +23,29 @@ local python_wsl_win_formatters = function()
 				}),
 			},
 			black = {
+				inherit = false,
 				command = "pwsh.exe",
 				args = {
 					"-Command",
 					"uv run black --stdin-filename $FILENAME --quiet -",
 				},
+				cwd = util.root_file({
+					"pyproject.toml",
+				}),
 			},
 			ruff = {
+				inherit = false,
 				command = "pwsh.exe",
 				args = {
 					"-Command",
 					"uv run ruff check --fix --force-exclude --exit-zero --no-cache --stdin-filename $FILENAME -",
 				},
+				stdin = true,
+				cwd = require("conform.util").root_file({
+					"pyproject.toml",
+					"ruff.toml",
+					".ruff.toml",
+				}),
 			},
 		}
 	else
