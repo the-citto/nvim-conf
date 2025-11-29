@@ -3,22 +3,26 @@ local M = {
 }
 
 local wsl_win_formatters = function(args)
-	-- vim.fn.system("command -v pwsh.exe")
-	-- if vim.v.shell_error ~= 0 then
-	-- 	print("'pwsh.exe' not found.")
-	-- 	return nil
-	-- end
-	-- vim.fn.system("command -v uv.exe")
-	-- if vim.v.shell_error ~= 0 then
-	-- 	print("'uv.exe' not found.")
-	-- 	return nil
-	-- end
-	local file_path = vim.api.nvim_buf_get_name(args.buf):gsub("/mnt/c", "C:")
+	vim.fn.system("command -v pwsh.exe")
+	if vim.v.shell_error ~= 0 then
+		print("'pwsh.exe' not found.")
+		return nil
+	end
+	vim.fn.system("command -v uv.exe")
+	if vim.v.shell_error ~= 0 then
+		print("'uv.exe' not found.")
+		return nil
+	end
+	local abs_path = args.file
+	local relative_path = vim.fn.fnamemodify(abs_path, ":.")
+	print(relative_path)
+	print(relative_path)
+	print(relative_path)
 	local pwsh_cmd = 'pwsh.exe -Command "uv run '
 	local ruff_cmd = "ruff check --fix "
-	-- local ruff_check = vim.fn.system(pwsh_cmd .. ruff_cmd .. file_path .. '"')
-	local ruff_check = vim.fn.system(pwsh_cmd .. 'ls"')
-	print(ruff_check)
+	local ruff_check = vim.fn.system(pwsh_cmd .. ruff_cmd .. relative_path .. '"')
+	-- local ruff_check = vim.fn.system(pwsh_cmd .. 'ls"')
+	-- print(ruff_check)
 	if vim.v.shell_error ~= 0 then
 		print(ruff_check)
 	end
@@ -62,26 +66,10 @@ M.config = function()
 			local ft = vim.bo[args.buf].filetype
 			if ft == "python" and vim.fn.getenv("IS_WSL_WIN") == "1" then
 				wsl_win_formatters(args)
-				-- local error = wsl_win_formatters(args)
-				-- if error ~= nil then
-				-- 	vim.notify(error, vim.log.levels.WARN)
-				-- end
 			else
-				-- local error = wsl_win_formatters(args)
-				wsl_win_formatters(args)
-				-- if error ~= nil then
-				-- 	vim.notify(error, vim.log.levels.WARN)
-				-- end
-				-- require("conform").format({ bufnr = args.buf, timeout_ms = 500 })
+				-- wsl_win_formatters(args)
+				require("conform").format({ bufnr = args.buf, timeout_ms = 500 })
 			end
-			-- 	if vim.fn.getenv("IS_WSL_WIN") == "1" then
-			-- 		local cmd_out = vim.fn.system("echo foo")
-			-- 		vim.notify(cmd_out)
-			-- 	else
-			-- 		local cmd_out = vim.fn.system("")
-			-- 		vim.notify(cmd_out)
-			-- 		require("conform").format({ bufnr = args.buf, timeout_ms = 500 })
-			-- 	end
 		end,
 	})
 end
