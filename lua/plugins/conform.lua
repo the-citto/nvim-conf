@@ -34,8 +34,11 @@ M.config = function()
 			pattern = "python",
 			callback = function(args)
 				vim.keymap.set({ "v", "n" }, "<leader>w", function()
+					local file_path = vim.fn.expand("%")
 					vim.cmd("write")
-					vim.fn.system({ "pwsh.exe", "-Command", "uv run black --quiet ." })
+					vim.fn.system({ "pwsh.exe", "-Command", "uv run black --quiet " .. file_path })
+					vim.fn.system({ "pwsh.exe", "-Command", "uv run ruff check --fix --force-exclude " .. file_path })
+					vim.fn.system({ "pwsh.exe", "-Command", "uv run isort " .. file_path })
 				end, { desc = "Format and save", buffer = args.buf })
 			end,
 		})
