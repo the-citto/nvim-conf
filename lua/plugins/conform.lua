@@ -2,15 +2,16 @@ local M = {
 	"stevearc/conform.nvim",
 }
 
-local python_formatters = function()
+local python_wsl_win_formatters = function()
 	if vim.fn.getenv("IS_WSL_WIN") == "1" then
 		return {
-			"isort",
-			"black",
-			"ruff",
-		}
-	else
-		return {
+			isort = {
+				command = "pwsh.exe",
+				args = {
+					"-Command",
+					"uv run isort --stdout --line-ending --filename $FILENAME -",
+				},
+			},
 			black = {
 				command = "pwsh.exe",
 				args = {
@@ -26,6 +27,8 @@ local python_formatters = function()
 				},
 			},
 		}
+	else
+		return {}
 	end
 end
 
@@ -37,10 +40,11 @@ M.config = function()
 				"stylua",
 				-- "luaformatter",
 			},
-			python = python_formatters(),
+			python = { "isort", "black", "ruff" },
 			rust = { "rustfmt", lsp_format = "fallback" },
 			-- javascript = { "prettierd", "prettier", stop_after_first = true },
 		},
+		formatters = python_wsl_win_formatters(),
 	})
 	-- if vim.fn.getenv("IS_WSL_WIN") == "1" then
 	-- 	conform.formatters.ruff = {
