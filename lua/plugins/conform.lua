@@ -22,7 +22,9 @@ M.config = function()
 	vim.api.nvim_create_autocmd("BufWritePre", {
 		pattern = "*",
 		callback = function(args)
-			require("conform").format({ bufnr = args.buf })
+			if vim.fn.getenv("IS_WSL_WIN") == nil then
+				require("conform").format({ bufnr = args.buf })
+			end
 		end,
 	})
 end
