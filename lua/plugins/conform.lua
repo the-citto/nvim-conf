@@ -35,14 +35,10 @@ M.config = function()
 			callback = function(args)
 				vim.keymap.set({ "v", "n" }, "<leader>w", function()
 					local file_path = vim.fn.expand("%")
-					local sys_args = { timeout = 500, text = true }
 					vim.cmd("write")
-					vim.system({ "pwsh.exe", "-Command", "uv run black --quiet " .. file_path }, sys_args)
-					vim.system(
-						{ "pwsh.exe", "-Command", "uv run ruff check --fix --force-exclude " .. file_path },
-						sys_args
-					)
-					vim.system({ "pwsh.exe", "-Command", "uv run isort " .. file_path }, sys_args)
+					vim.fn.system({ "pwsh.exe", "-Command", "uv run black --quiet " .. file_path })
+					vim.fn.system({ "pwsh.exe", "-Command", "uv run ruff check --fix --force-exclude " .. file_path })
+					vim.fn.system({ "pwsh.exe", "-Command", "uv run isort " .. file_path })
 					vim.cmd("checktime")
 				end, { desc = "Format and save", buffer = args.buf })
 			end,
