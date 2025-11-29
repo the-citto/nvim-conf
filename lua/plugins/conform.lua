@@ -17,13 +17,13 @@ M.config = function()
 			rust = { "rustfmt", lsp_format = "fallback" },
 			-- javascript = { "prettierd", "prettier", stop_after_first = true },
 		},
-		format_on_save = { timeout_ms = 500 },
+		-- format_on_save = { timeout_ms = 500 },
 	})
 	vim.api.nvim_create_autocmd("BufWritePre", {
 		pattern = "*",
 		callback = function(args)
 			if vim.fn.getenv("IS_WSL_WIN") == nil then
-				require("conform").format({ bufnr = args.buf })
+				require("conform").format({ bufnr = args.buf, timeout_ms = 500 })
 			end
 		end,
 	})
