@@ -26,7 +26,7 @@ M.config = function()
 		--     "terraform",
 		-- },
 	}
-	vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+	vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "FileChangedShell" }, {
 		callback = function()
 			lint.try_lint()
 		end,
