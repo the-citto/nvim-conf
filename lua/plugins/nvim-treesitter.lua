@@ -23,45 +23,6 @@ local M = {
 		},
 	},
 	config = function()
-		require("nvim-treesitter").install({
-			"bash",
-			"c",
-			"c_sharp",
-			"cmake",
-			"cpp",
-			"css",
-			"csv",
-			"dockerfile",
-			"fortran",
-			"gitignore",
-			"go",
-			"html",
-			"htmldjango",
-			"jinja",
-			"javascript",
-			"jsdoc",
-			"json",
-			"jsonc",
-			"lua",
-			"make",
-			"markdown",
-			"powershell",
-			"python",
-			"query",
-			"r",
-			"regex",
-			"rust",
-			"scss",
-			"sql",
-			"terraform",
-			"toml",
-			"typescript",
-			"vim",
-			"vimdoc",
-			"vue",
-			"xml",
-			"yaml",
-		})
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = { "*" },
 			callback = function(args)
@@ -89,12 +50,18 @@ local M = {
 				vim.opt.expandtab = expandtab
 				vim.opt.softtabstop = indent
 				vim.opt.shiftwidth = indent
-				local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
-				if lang then
+				local has_parser = pcall(vim.treesitter.get_parser, args.buf)
+				if has_parser then
 					vim.treesitter.start(args.buf)
+					vim.bo[args.buf].syntax = "off"
 					vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 				else
-					print("No Treesitter parser for: " .. vim.bo[args.buf].filetype)
+					vim.bo[args.buf].syntax = "on"
+					vim.notify(
+						"Treesitter parser missing for: " .. ft .. " (Falling back to legacy syntax)",
+						vim.log.levels.WARN,
+						{ title = "Treesitter Check" }
+					)
 				end
 			end,
 		})
