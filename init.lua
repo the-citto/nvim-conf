@@ -7,9 +7,9 @@ elseif win_py_libs ~= nil then
 	vim.fn.setenv("PYTHONPATH", win_py_libs)
 end
 
-if vim.fn.getcwd():match("/([^/]+)") == "mnt" then
-	vim.fn.setenv("IS_WSL_WIN", "1")
-end
+-- if vim.fn.getcwd():match("/([^/]+)") == "mnt" then
+-- 	vim.fn.setenv("IS_WSL_WIN", "1")
+-- end
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -24,33 +24,6 @@ vim.filetype.add({
 })
 
 vim.keymap.set({ "n", "v", "i" }, "<c-z>", "<esc>u", { remap = true, desc = "undo" })
-
--- vim.api.nvim_create_autocmd("FileType", {
--- 	pattern = { "*" },
--- 	callback = function(args)
--- 		local indent = 4
--- 		local expandtab = true
--- 		local ft = vim.bo[args.buf].filetype
--- 		-- print(ft)
--- 		-- if ft == "r" or ft == "html" or ft == "htmldjango" then
--- 		if ft == "r" or ft == "yaml" or ft == "terraform" then
--- 			indent = 2
--- 		elseif ft == "make" then
--- 			indent = 8
--- 			expandtab = false
--- 			-- elseif ft == "python" or ft == "lua" then
--- 			--     vim.opt.foldmethod = "indent"
--- 			--     vim.opt.foldcolumn = "4"
--- 			--     vim.opt.foldlevel = 4
--- 			--     vim.opt.foldlevelstart = 2
--- 			--     vim.opt.foldnestmax = 4
--- 		end
--- 		vim.opt.tabstop = indent
--- 		vim.opt.expandtab = expandtab
--- 		vim.opt.softtabstop = indent
--- 		vim.opt.shiftwidth = indent
--- 	end,
--- })
 
 vim.opt.hlsearch = false
 vim.opt.number = true

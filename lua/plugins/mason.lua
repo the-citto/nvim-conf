@@ -1,11 +1,9 @@
-
-
 local M = {
-    "williamboman/mason.nvim",
-    lazy = false,
-    opts = {},
+	"williamboman/mason.nvim",
+	lazy = false,
+	opts = {
+		-- PATH = "append",
+	},
 }
 
-
 return M
-

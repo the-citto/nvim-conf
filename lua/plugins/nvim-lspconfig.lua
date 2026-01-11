@@ -6,7 +6,7 @@ local M = {
 	},
 }
 
--- REMEMBER: update Mason lspcinfig
+-- REMEMBER: update Mason lspconfig
 
 M.config = function()
 	local capabilities = require("blink.cmp").get_lsp_capabilities()
@@ -63,6 +63,9 @@ M.config = function()
 			local client = vim.lsp.get_client_by_id(ev.data.client_id)
 			if not client then
 				return
+			end
+            if client.name == "ruff" then
+				client.server_capabilities.semanticTokensProvider = nil
 			end
 			for _, no_jump_server in ipairs(no_jump_servers) do
 				if no_jump_server == client.name then
