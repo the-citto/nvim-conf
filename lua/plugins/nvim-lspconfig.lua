@@ -21,6 +21,7 @@ M.config = function()
 	vim.lsp.config("htmx", { capabilities = capabilities })
 	vim.lsp.config("jinja_lsp", { capabilities = capabilities })
 	vim.lsp.config("jsonls", { capabilities = capabilities })
+	vim.lsp.config("just", { capabilities = capabilities })
 	vim.lsp.config("lua_ls", {
 		capabilities = capabilities,
 		settings = {
@@ -64,7 +65,7 @@ M.config = function()
 			if not client then
 				return
 			end
-            if client.name == "ruff" then
+			if client.name == "ruff" then
 				client.server_capabilities.semanticTokensProvider = nil
 			end
 			for _, no_jump_server in ipairs(no_jump_servers) do
