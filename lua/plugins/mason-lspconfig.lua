@@ -24,7 +24,6 @@ local M = {
 			"pyright",
 			"ruff",
 			"rust_analyzer",
-			"sqls",
 			"tailwindcss",
 			"taplo",
 			"terraformls",
