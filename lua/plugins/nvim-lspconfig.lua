@@ -73,6 +73,9 @@ M.config = function()
 					client.server_capabilities.completionProvider = nil
 				end
 			end
+			if client.name == "just" then
+				client.server_capabilities.diagnosticProvider = nil
+			end
 			vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 			local buffer = ev.buf
 			vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, { buffer = buffer, desc = "jump to definition" })
