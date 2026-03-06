@@ -16,11 +16,11 @@ vim.g.maplocalleader = " "
 
 vim.filetype.add({
 	pattern = {
-		["just%.vars$"] = "sh",
-		["%.coveragerc$"] = "dosini",
-		["%.flake8$"] = "dosini",
+		["just.vars"] = "sh",
+		[".coveragerc"] = "dosini",
+		[".flake8"] = "dosini",
 		["requirements.*.*"] = "requirements",
-		["%.gcloudignore$"] = "gitignore",
+		[".gcloudignore"] = "gitignore",
 	},
 })
 
