@@ -4,6 +4,14 @@ local M = {
 
 M.config = function()
 	require("nvim-web-devicons").setup({
+		override_by_extension = {
+			["just"] = {
+				icon = "",
+				color = "#6D8086",
+				cterm_color = "66",
+				name = "Justfile",
+			},
+		},
 		override_by_filename = {
 			["requirements.in"] = {
 				icon = "",
