@@ -15,11 +15,14 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 vim.filetype.add({
+	filename = {
+		["just.vars"] = "sh",
+		[".coveragerc"] = "dosini",
+		[".flake8"] = "dosini",
+	},
 	pattern = {
 		["requirements.*.*"] = "requirements",
 		[".gcloudignore"] = "gitignore",
-		[".coveragerc"] = "dosini",
-		[".flake8"] = "dosini",
 	},
 })
 
