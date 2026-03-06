@@ -21,7 +21,12 @@ M.config = function()
 	vim.lsp.config("htmx", { capabilities = capabilities })
 	vim.lsp.config("jinja_lsp", { capabilities = capabilities })
 	vim.lsp.config("jsonls", { capabilities = capabilities })
-	vim.lsp.config("just", { capabilities = capabilities })
+	vim.lsp.config("just", {
+		capabilities = capabilities,
+		handlers = {
+			["textDocument/publishDiagnostics"] = function() end,
+		},
+	})
 	vim.lsp.config("lua_ls", {
 		capabilities = capabilities,
 		settings = {
@@ -72,9 +77,6 @@ M.config = function()
 					client.server_capabilities.definitionProvider = false
 					client.server_capabilities.completionProvider = nil
 				end
-			end
-			if client.name == "just" then
-				client.server_capabilities.diagnosticProvider = nil
 			end
 			vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 			local buffer = ev.buf
