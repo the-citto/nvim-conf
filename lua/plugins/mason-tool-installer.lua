@@ -8,8 +8,9 @@ local M = {
 M.config = function()
 	require("mason-tool-installer").setup({
 		ensure_installed = {
-			"isort",
 			"black",
+			"clang-format",
+			"isort",
 			"stylua",
 		},
 	})

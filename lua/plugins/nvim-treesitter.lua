@@ -39,18 +39,18 @@ local M = {
 				vim.opt_local.expandtab = expandtab
 				vim.opt_local.softtabstop = indent
 				vim.opt_local.shiftwidth = indent
-				local has_parser = pcall(vim.treesitter.get_parser, buf)
-				if has_parser then
-					vim.treesitter.start(args.buf)
-					vim.bo[args.buf].syntax = "off"
-					vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-				elseif ft ~= "" then
-					vim.notify(
-						"Treesitter parser missing for: " .. ft .. " (Falling back to legacy syntax)",
-						vim.log.levels.WARN,
-						{ title = "Treesitter Check" }
-					)
-				end
+				-- local has_parser = pcall(vim.treesitter.get_parser, buf)
+				-- if has_parser then
+				-- 	vim.treesitter.start(args.buf)
+				-- 	vim.bo[args.buf].syntax = "off"
+				-- 	vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+				-- elseif ft ~= "" then
+				-- 	vim.notify(
+				-- 		"Treesitter parser missing for: " .. ft .. " (Falling back to legacy syntax)",
+				-- 		vim.log.levels.WARN,
+				-- 		{ title = "Treesitter Check" }
+				-- 	)
+				-- end
 			end,
 		})
 	end,
