@@ -8,7 +8,7 @@ local M = {
 		-- automatic_installation = true
 		ensure_installed = {
 			"clangd",
-			-- "cmake",
+			"neocmake",
 			"cssls",
 			"docker_compose_language_service",
 			"dockerls",
