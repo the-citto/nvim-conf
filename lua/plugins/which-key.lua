@@ -69,7 +69,7 @@ M.config = function()
 		{ "<leader>t", group = "Trouble" },
 		{ "<leader>tf", "<cmd>Trouble diagnostics focus<cr>", desc = ":Trouble diagnostics focus" },
 		{ "<leader>tt", "<cmd>Trouble diagnostics toggle<cr>", desc = ":Trouble diagnostics toggle" },
-		{ "<leader>tc", "<cmd>lua vim.diagnostics.reset()<cr>", desc = ":diagnostics reset" },
+		{ "<leader>tc", "<cmd>lua vim.diagnostic.reset()<cr>", desc = ":diagnostics reset" },
 	})
 end
 
