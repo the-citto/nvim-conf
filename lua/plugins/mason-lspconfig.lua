@@ -8,7 +8,6 @@ local M = {
 		-- automatic_installation = true
 		ensure_installed = {
 			"clangd",
-			"neocmake",
 			"cssls",
 			"docker_compose_language_service",
 			"dockerls",
@@ -22,6 +21,7 @@ local M = {
 			"just",
 			"lua_ls",
 			"marksman",
+			"neocmake",
 			"pyright",
 			"ruff",
 			"rust_analyzer",
