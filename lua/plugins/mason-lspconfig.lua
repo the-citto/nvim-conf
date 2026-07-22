@@ -9,6 +9,7 @@ local M = {
 		ensure_installed = {
 			"clangd",
 			"cssls",
+			"denols",
 			"docker_compose_language_service",
 			"dockerls",
 			"gh_actions_ls",
@@ -31,6 +32,7 @@ local M = {
 			"tflint",
 			"ts_ls",
 			"ty",
+			"vue_ls",
 			"yamlls",
 		},
 	},

@@ -12,8 +12,9 @@ M.config = function()
 	local capabilities = require("blink.cmp").get_lsp_capabilities()
 	vim.lsp.config("clangd", { capabilities = capabilities })
 	-- vim.lsp.config("cmake", { capabilities = capabilities })
-	vim.lsp.config("neocmake", { capabilities = capabilities })
+	vim.lsp.config("neocmake", { capabipities = capabilities })
 	vim.lsp.config("cssls", { capabilities = capabilities })
+	vim.lsp.config("denols", { capabilities = capabilities })
 	vim.lsp.config("docker_compose_language_service", { capabilities = capabilities })
 	vim.lsp.config("dockerls", { capabilities = capabilities })
 	vim.lsp.config("gh_actions_ls", { capabilities = capabilities })
@@ -51,19 +52,13 @@ M.config = function()
 	vim.lsp.config("tflint", { capabilities = capabilities })
 	vim.lsp.config("ts_ls", { capabilities = capabilities })
 	vim.lsp.config("ty", { capabilities = capabilities })
+	vim.lsp.config("vue_ls", { capabilities = capabilities })
 	vim.lsp.config("yamlls", { capabilities = capabilities })
-	-- if vim.fn.getcwd():match( "/([^/]+)") == "mnt" then
-	-- if vim.fn.getenv("IS_WSL_WIN") then
-	--     vim.lsp.config("ty", { cmd = {} })
-	-- end
 	vim.diagnostic.config({
 		virtual_text = true,
 		underline = false,
 	})
-	local no_jump_servers = {
-		"ruff",
-		"ty",
-	}
+	local no_jump_servers = { "ruff", "ty" }
 	vim.api.nvim_create_autocmd("LspAttach", {
 		group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 		callback = function(ev)
