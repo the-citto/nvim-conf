@@ -10,7 +10,9 @@ M.config = function()
 		ensure_installed = {
 			"black",
 			"clang-format",
+			"djlint",
 			"isort",
+			"prettier",
 			"stylua",
 		},
 	})

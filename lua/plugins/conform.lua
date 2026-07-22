@@ -8,38 +8,47 @@ M.config = function()
 		formatters_by_ft = {
 			c = { "clang-format" },
 			cpp = { "clang-format" },
+			css = { "prettier" },
+			html = { "djlint" },
+			javascript = { "prettier" },
 			lua = {
 				"stylua",
 				-- "luaformatter",
 			},
 			python = {
-				-- "isort",
-				-- "black",
+				"black",
 				"ruff",
+				"isort",
 			},
 			rust = { "rustfmt", lsp_format = "fallback" },
-			-- javascript = { "prettierd", "prettier", stop_after_first = true },
 		},
 	})
+	conform.formatters.djlint = {
+		args = { "--reformat", "--format-css", "--format-js", "-" },
+	}
 	vim.api.nvim_create_autocmd("BufWritePre", {
 		pattern = "*",
 		callback = function(args)
-			require("conform").format({ bufnr = args.buf, timeout_ms = 500 })
+			require("conform").format({
+				bufnr = args.buf,
+				timeout_ms = 500,
+				async = false,
+			})
 		end,
 	})
-	vim.api.nvim_create_autocmd("FileType", {
-		pattern = "python",
-		callback = function(args)
-			vim.keymap.set({ "v", "n" }, "<leader>w", function()
-				local file_path = vim.fn.expand("%")
-				vim.cmd("write")
-				vim.fn.system({ "black", "--quiet", file_path })
-				vim.fn.system({ "ruff", "check", "--fix", "--force-exclude", file_path })
-				vim.fn.system({ "isort", file_path })
-				vim.cmd("checktime")
-			end, { desc = "Format and save", buffer = args.buf })
-		end,
-	})
+	-- vim.api.nvim_create_autocmd("FileType", {
+	-- 	pattern = "python",
+	-- 	callback = function(args)
+	-- 		vim.keymap.set({ "v", "n" }, "<leader>w", function()
+	-- 			local file_path = vim.fn.expand("%")
+	-- 			vim.cmd("write")
+	-- 			vim.fn.system({ "black", "--quiet", file_path })
+	-- 			vim.fn.system({ "ruff", "check", "--fix", "--force-exclude", file_path })
+	-- 			vim.fn.system({ "isort", file_path })
+	-- 			vim.cmd("checktime")
+	-- 		end, { desc = "Format and save", buffer = args.buf })
+	-- 	end,
+	-- })
 end
 
 return M
