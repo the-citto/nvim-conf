@@ -31,7 +31,7 @@ M.config = function()
 		callback = function(args)
 			require("conform").format({
 				bufnr = args.buf,
-				timeout_ms = 500,
+				timeout_ms = 2500,
 				async = false,
 			})
 		end,
