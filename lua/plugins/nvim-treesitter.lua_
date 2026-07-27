@@ -1,17 +1,17 @@
 local M = {
-	"nvim-treesitter/nvim-treesitter",
-	build = ":TSUpdate",
-	lazy = false,
-	dependencies = {
-		{
-			"nvim-treesitter/nvim-treesitter-textobjects",
-			branch = "main",
-		},
-		{
-			"windwp/nvim-ts-autotag",
-			opt_locals = {},
-		},
-	},
+	-- "nvim-treesitter/nvim-treesitter",
+	-- build = ":TSUpdate",
+	-- lazy = false,
+	-- dependencies = {
+	-- 	{
+	-- 		"nvim-treesitter/nvim-treesitter-textobjects",
+	-- 		branch = "main",
+	-- 	},
+	-- 	-- {
+	-- 	-- 	"windwp/nvim-ts-autotag",
+	-- 	-- 	opt_locals = {},
+	-- 	-- },
+	-- },
 	config = function()
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = { "*" },
@@ -24,21 +24,33 @@ local M = {
 				end
 				local indent = 4
 				local expandtab = true
-				if ft == "r" or ft == "yaml" or ft == "terraform" then
+				local two_space_fts = {
+					css = true,
+					html = true,
+					javascript = true,
+					javascriptreact = true,
+					r = true,
+					terraform = true,
+					typescript = true,
+					typescriptreact = true,
+					yaml = true,
+				}
+				-- if ft == "r" or ft == "yaml" or ft == "terraform" then
+				if two_space_fts[ft] then
 					indent = 2
 				elseif ft == "make" then
 					indent = 8
 					expandtab = false
 				end
+				vim.opt_local.tabstop = indent
+				vim.opt_local.expandtab = expandtab
+				vim.opt_local.softtabstop = indent
+				vim.opt_local.shiftwidth = indent
 				-- vim.opt_local.foldmethod = "indent"
 				-- vim.opt_local.foldcolumn = "4"
 				-- vim.opt_local.foldlevel = 4
 				-- vim.opt_local.foldlevelstart = 2
 				-- vim.opt_local.foldnestmax = 4
-				vim.opt_local.tabstop = indent
-				vim.opt_local.expandtab = expandtab
-				vim.opt_local.softtabstop = indent
-				vim.opt_local.shiftwidth = indent
 				-- local has_parser = pcall(vim.treesitter.get_parser, buf)
 				-- if has_parser then
 				-- 	vim.treesitter.start(args.buf)

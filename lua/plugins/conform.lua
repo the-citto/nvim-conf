@@ -8,12 +8,18 @@ M.config = function()
 		formatters_by_ft = {
 			c = { "clang-format" },
 			cpp = { "clang-format" },
-			css = { "prettier" },
+			-- css = { "prettier" },
 			-- html = { "djlint" },
-			javascript = { "prettier" },
+			css = { "deno_fmt" },
+			html = { "deno_fmt" },
+			javascript = { "deno_fmt" },
+			javascriptreact = { "deno_fmt" },
 			lua = { "stylua" },
 			python = { "black", "ruff", "isort" },
-			rust = { "rustfmt", lsp_format = "fallback" },
+			rust = { "rustfmt" },
+			typescript = { "deno_fmt" },
+			typescriptreact = { "deno_fmt" },
+			yaml = { "deno_fmt" },
 		},
 	})
 	-- conform.formatters.djlint = { args = { "--reformat", "--format-css", "--format-js", "-" } }

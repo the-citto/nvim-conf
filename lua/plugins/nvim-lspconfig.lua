@@ -50,9 +50,9 @@ M.config = function()
 	vim.lsp.config("tailwindcss", { capabilities = capabilities })
 	vim.lsp.config("terraformls", { capabilities = capabilities })
 	vim.lsp.config("tflint", { capabilities = capabilities })
-	vim.lsp.config("ts_ls", { capabilities = capabilities })
+	-- vim.lsp.config("ts_ls", { capabilities = capabilities })
 	vim.lsp.config("ty", { capabilities = capabilities })
-	vim.lsp.config("vue_ls", { capabilities = capabilities })
+	-- vim.lsp.config("vue_ls", { capabilities = capabilities })
 	vim.lsp.config("yamlls", { capabilities = capabilities })
 	vim.diagnostic.config({
 		virtual_text = true,
