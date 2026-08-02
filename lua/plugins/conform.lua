@@ -12,6 +12,7 @@ M.config = function()
 			-- html = { "djlint" },
 			css = { "deno_fmt" },
 			html = { "deno_fmt" },
+			json = { "deno_fmt" },
 			javascript = { "deno_fmt" },
 			javascriptreact = { "deno_fmt" },
 			lua = { "stylua" },
@@ -22,7 +23,6 @@ M.config = function()
 			yaml = { "deno_fmt" },
 		},
 	})
-	-- conform.formatters.djlint = { args = { "--reformat", "--format-css", "--format-js", "-" } }
 	vim.api.nvim_create_autocmd("BufWritePre", {
 		pattern = "*",
 		callback = function(args)

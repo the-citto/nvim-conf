@@ -148,6 +148,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		local two_space_fts = {
 			css = true,
 			html = true,
+			json = true,
 			javascript = true,
 			javascriptreact = true,
 			r = true,
