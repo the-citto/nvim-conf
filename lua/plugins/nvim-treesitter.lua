@@ -13,6 +13,7 @@ M.config = function()
 		"gitattributes",
 		"gitignore",
 		"html",
+		"htmldjango",
 		"ini",
 		"javascript",
 		"json",
