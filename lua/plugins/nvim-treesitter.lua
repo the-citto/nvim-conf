@@ -9,6 +9,7 @@ M.config = function()
 	treesitter.install({
 		"bash",
 		"css",
+		"dockerfile",
 		"gitattributed",
 		"gitignore",
 		"html",
