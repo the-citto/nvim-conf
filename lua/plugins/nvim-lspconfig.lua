@@ -48,7 +48,10 @@ M.config = function()
 	vim.lsp.config("ruff", { capabilities = capabilities })
 	vim.lsp.config("rust_analyzer", { capabilities = capabilities })
 	vim.lsp.config("taplo", { capabilities = capabilities })
-	-- vim.lsp.config("tailwindcss", { capabilities = capabilities })
+	vim.lsp.config("tailwindcss", {
+		capabilities = capabilities,
+		root_dir = require("lspconfig").util.root_pattern("deno.json", "deno.jsonc", ".git"),
+	})
 	vim.lsp.config("terraformls", { capabilities = capabilities })
 	vim.lsp.config("tflint", { capabilities = capabilities })
 	-- vim.lsp.config("ts_ls", { capabilities = capabilities })

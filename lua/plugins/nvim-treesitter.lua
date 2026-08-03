@@ -8,20 +8,28 @@ M.config = function()
 	local treesitter = require("nvim-treesitter")
 	treesitter.install({
 		"bash",
+		"c",
+		"cmake",
+		"cpp",
 		"css",
 		"dockerfile",
 		"gitattributes",
 		"gitignore",
+		"go",
 		"html",
 		"htmldjango",
 		"ini",
 		"javascript",
+		"jinja",
 		"json",
 		"jsx",
 		"just",
 		"lua",
+		"make",
+		"markdown",
 		"python",
 		"rust",
+		"sql",
 		"terraform",
 		"toml",
 		"tsx",
@@ -32,21 +40,25 @@ M.config = function()
 		pattern = { "*" },
 		callback = function(args)
 			local buf = args.buf
+			local buftype = vim.bo[buf].buftype
+			if buftype == "nofile" or buftype == "prompt" or buftype == "quickfix" then
+				return
+			end
 			local ft = vim.bo[buf].filetype
-			local _, parser_table = pcall(vim.treesitter.get_parser, buf, ft)
+			local lang = vim.treesitter.language.get_lang(ft) or ft
+			local _, parser_table = pcall(vim.treesitter.get_parser, buf, lang)
 			if parser_table == nil then
-				if ft ~= "NvimTree" then
-					vim.notify(
-						"Treesitter parser missing for: " .. ft .. " (Falling back to legacy syntax)",
-						vim.log.levels.WARN,
-						{ title = "Treesitter Check" }
-					)
-				end
+				vim.notify(
+					"Treesitter parser missing for: " .. ft .. " (Falling back to legacy syntax)",
+					vim.log.levels.WARN,
+					{ title = "Treesitter Check" }
+				)
 			else
-				if vim.treesitter.query.get(ft, "highlights") then
+				if vim.treesitter.query.get(lang, "highlights") then
+					-- vim.bo[args.buf].syntax = "off"
 					vim.treesitter.start()
 				end
-				if vim.treesitter.query.get(ft, "indents") then
+				if vim.treesitter.query.get(lang, "indents") then
 					vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
 				end
 			end
