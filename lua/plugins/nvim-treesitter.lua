@@ -10,7 +10,7 @@ M.config = function()
 		"bash",
 		"css",
 		"dockerfile",
-		"gitattribute",
+		"gitattributes",
 		"gitignore",
 		"html",
 		"ini",
