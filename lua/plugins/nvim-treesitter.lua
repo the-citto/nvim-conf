@@ -9,7 +9,10 @@ M.config = function()
 	treesitter.install({
 		"bash",
 		"css",
+		"gitattributed",
+		"gitignore",
 		"html",
+		"ini",
 		"javascript",
 		"json",
 		"jsx",
