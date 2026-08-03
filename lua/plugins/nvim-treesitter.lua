@@ -7,7 +7,10 @@ local M = {
 M.config = function()
 	local treesitter = require("nvim-treesitter")
 	treesitter.install({
+		"css",
 		"html",
+		"javascript",
+		"jsx",
 		"lua",
 		"python",
 		"tsx",
@@ -18,11 +21,22 @@ M.config = function()
 		callback = function(args)
 			local buf = args.buf
 			local ft = vim.bo[buf].filetype
-			if vim.treesitter.query.get(ft, "highlights") then
-				vim.treesitter.start()
-			end
-			if vim.treesitter.query.get(ft, "indents") then
-				vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+			local _, parser_table = pcall(vim.treesitter.get_parser, buf, ft)
+			if parser_table == nil then
+				if ft ~= "NvimTree" then
+					vim.notify(
+						"Treesitter parser missing for: " .. ft .. " (Falling back to legacy syntax)",
+						vim.log.levels.WARN,
+						{ title = "Treesitter Check" }
+					)
+				end
+			else
+				if vim.treesitter.query.get(ft, "highlights") then
+					vim.treesitter.start()
+				end
+				if vim.treesitter.query.get(ft, "indents") then
+					vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+				end
 			end
 		end,
 	})
