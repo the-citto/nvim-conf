@@ -134,39 +134,39 @@ end, { desc = "Send code to REPL Pane 2" })
 
 -- require("utils")
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "*" },
-	callback = function(args)
-		local buf = args.buf
-		local ft = vim.bo[buf].filetype
-		local buftype = vim.bo[buf].buftype
-		if buftype == "nofile" or buftype == "prompt" or buftype == "quickfix" then
-			return
-		end
-		local indent = 4
-		local expandtab = true
-		local two_space_fts = {
-			css = true,
-			html = true,
-			json = true,
-			javascript = true,
-			javascriptreact = true,
-			r = true,
-			terraform = true,
-			typescript = true,
-			typescriptreact = true,
-			yaml = true,
-		}
-		-- if ft == "r" or ft == "yaml" or ft == "terraform" then
-		if two_space_fts[ft] then
-			indent = 2
-		elseif ft == "make" then
-			indent = 8
-			expandtab = false
-		end
-		vim.opt_local.tabstop = indent
-		vim.opt_local.expandtab = expandtab
-		vim.opt_local.softtabstop = indent
-		vim.opt_local.shiftwidth = indent
-	end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = { "*" },
+-- 	callback = function(args)
+-- 		local buf = args.buf
+-- 		local ft = vim.bo[buf].filetype
+-- 		local buftype = vim.bo[buf].buftype
+-- 		if buftype == "nofile" or buftype == "prompt" or buftype == "quickfix" then
+-- 			return
+-- 		end
+-- 		local indent = 4
+-- 		local expandtab = true
+-- 		local two_space_fts = {
+-- 			css = true,
+-- 			html = true,
+-- 			json = true,
+-- 			javascript = true,
+-- 			javascriptreact = true,
+-- 			r = true,
+-- 			terraform = true,
+-- 			typescript = true,
+-- 			typescriptreact = true,
+-- 			yaml = true,
+-- 		}
+-- 		-- if ft == "r" or ft == "yaml" or ft == "terraform" then
+-- 		if two_space_fts[ft] then
+-- 			indent = 2
+-- 		elseif ft == "make" then
+-- 			indent = 8
+-- 			expandtab = false
+-- 		end
+-- 		vim.opt_local.tabstop = indent
+-- 		vim.opt_local.expandtab = expandtab
+-- 		vim.opt_local.softtabstop = indent
+-- 		vim.opt_local.shiftwidth = indent
+-- 	end,
+-- })
