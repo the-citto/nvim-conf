@@ -22,6 +22,7 @@ M.config = function()
 		"python",
 		"rust",
 		"terraform",
+		"toml",
 		"tsx",
 		"typescript",
 		"yaml",
