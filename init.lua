@@ -145,20 +145,32 @@ vim.api.nvim_create_autocmd("FileType", {
 		end
 		local indent = 4
 		local expandtab = true
+		-- local two_space_fts = {
+		-- 	css = true,
+		-- 	html = true,
+		-- 	json = true,
+		-- 	javascript = true,
+		-- 	javascriptreact = true,
+		-- 	r = true,
+		-- 	terraform = true,
+		-- 	typescript = true,
+		-- 	typescriptreact = true,
+		-- 	yaml = true,
+		-- }
 		local two_space_fts = {
-			css = true,
-			html = true,
-			json = true,
-			javascript = true,
-			javascriptreact = true,
-			r = true,
-			terraform = true,
-			typescript = true,
-			typescriptreact = true,
-			yaml = true,
+			"css",
+			"html",
+			"json",
+			"javascript",
+			"javascriptreact",
+			"r",
+			"terraform",
+			"typescript",
+			"typescriptreact",
+			"yaml",
 		}
-		-- if ft == "r" or ft == "yaml" or ft == "terraform" then
-		if two_space_fts[ft] then
+		if vim.list_contains(two_space_fts, ft) then
+			-- if two_space_fts[ft] then
 			indent = 2
 		elseif ft == "make" then
 			indent = 8
