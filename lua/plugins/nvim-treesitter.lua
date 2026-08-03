@@ -7,14 +7,20 @@ local M = {
 M.config = function()
 	local treesitter = require("nvim-treesitter")
 	treesitter.install({
+		"bash",
 		"css",
 		"html",
 		"javascript",
+		"json",
 		"jsx",
+		"just",
 		"lua",
 		"python",
+		"rust",
+		"terraform",
 		"tsx",
 		"typescript",
+		"yaml",
 	})
 	vim.api.nvim_create_autocmd("FileType", {
 		pattern = { "*" },
