@@ -120,20 +120,6 @@ end, { desc = "Send code to REPL Pane 2" })
 --     { desc = 'Send code to REPL Pane 3' }
 -- )
 
--- auto install of pynvim
--- require("startup.pynvim_env")
--- vim.g.python_host_prog = "/usr/bin/python"
--- vim.g.python3_host_prog = "/usr/bin/python3"
-
--- lazy
--- require("startup.lazy")
-
--- require("startup")
-
--- require("settings")
-
--- require("utils")
-
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "*" },
 	callback = function(args)
@@ -145,18 +131,6 @@ vim.api.nvim_create_autocmd("FileType", {
 		end
 		local indent = 4
 		local expandtab = true
-		-- local two_space_fts = {
-		-- 	css = true,
-		-- 	html = true,
-		-- 	json = true,
-		-- 	javascript = true,
-		-- 	javascriptreact = true,
-		-- 	r = true,
-		-- 	terraform = true,
-		-- 	typescript = true,
-		-- 	typescriptreact = true,
-		-- 	yaml = true,
-		-- }
 		local two_space_fts = {
 			"css",
 			"html",
