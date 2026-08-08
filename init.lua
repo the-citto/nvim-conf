@@ -109,8 +109,10 @@ local send_code = function(pane_id)
 	vim.api.nvim_input("<esc>")
 end
 
+vim.g.send_to_repl_pane = 2
+
 vim.keymap.set({ "v", "n" }, "<C-Bslash>", function()
-	send_code(2)
+	send_code(vim.g.send_to_repl_pane)
 end, { desc = "Send code to REPL Pane 2" })
 
 -- vim.keymap.set(

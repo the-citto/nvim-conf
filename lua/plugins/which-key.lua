@@ -11,6 +11,35 @@ M.config = function()
 	require("which-key").add({
 		{ "<leader>b", "<cmd>Telescope buffers<cr>", desc = ":Telescope buffers" },
 		{ "<leader>f", "<cmd>Telescope find_files<cr>", desc = ":Telescope find_files" },
+		{ "<leader>r", group = "Send to REPL" },
+		{
+			"<leader>r2",
+			function()
+				vim.g.send_to_repl_pane = 2
+			end,
+			desc = "Set Pane 2",
+		},
+		{
+			"<leader>r3",
+			function()
+				vim.g.send_to_repl_pane = 3
+			end,
+			desc = "Set Pane 3",
+		},
+		{
+			"<leader>r4",
+			function()
+				vim.g.send_to_repl_pane = 4
+			end,
+			desc = "Set Pane 4",
+		},
+		{
+			"<leader>r5",
+			function()
+				vim.g.send_to_repl_pane = 5
+			end,
+			desc = "Set Pane 5",
+		},
 		{ "<leader>s", group = "Telescope", mode = { "n", "v" } },
 		{ "<leader>sc", "<cmd>Telescope commands<cr>", desc = ":Telescope commands" },
 		{ "<leader>sf", "<cmd>Telescope find_files<cr>", desc = ":Telescope find_files" },
