@@ -53,7 +53,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 local send_clean_code = function(pane_id, line)
-	local send_keys_prefix = "!tmux send-keys -t " .. pane_id .. " -l '"
+	local send_keys_prefix = "!tmux send-keys -t " .. pane_id .. " -l -- '"
 	local send_keys_suffix = "'"
 	line = line:gsub("'", "'\\''")
 	line = line:gsub("!", "\\!")
