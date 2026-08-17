@@ -52,7 +52,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
-local send_clean_code = function(pane_id, line)
+vim.g.send_to_repl_pane = 2
+
+local send_clean_code = function(line)
+	local pane_id = vim.g.send_to_repl_pane
 	local send_keys_prefix = "!tmux send-keys -t " .. pane_id .. " -l -- '"
 	local send_keys_suffix = "'"
 	line = line:gsub("'", "'\\''")
@@ -63,7 +66,9 @@ local send_clean_code = function(pane_id, line)
 	vim.cmd(send_keys_prefix .. line .. send_keys_suffix)
 	vim.cmd("!tmux send-keys -t " .. pane_id .. " Enter")
 end
-local send_code = function(pane_id)
+
+local send_code = function()
+	local pane_id = vim.g.send_to_repl_pane
 	local mode = vim.api.nvim_get_mode().mode
 	local v_line = vim.fn.line("v")
 	local curs = vim.api.nvim_win_get_cursor(0)
@@ -78,7 +83,7 @@ local send_code = function(pane_id)
 			s_col, e_col = c_col, v_col
 		end
 		local line = vim.api.nvim_buf_get_text(0, v_line - 1, s_col, c_line - 1, e_col, {})[1]
-		send_clean_code(pane_id, line)
+		send_clean_code(line)
 	else
 		if mode == "n" and vim.api.nvim_get_current_line() == "" then
 			vim.cmd("!tmux send-keys -t " .. pane_id .. " Enter")
@@ -94,11 +99,11 @@ local send_code = function(pane_id)
 					is_string = not is_string
 				end
 				if is_string then
-					send_clean_code(pane_id, line)
+					send_clean_code(line)
 				elseif line:gsub("^%s+", "") ~= "" then
 					_, indent_last = string.find(line, "^%s*")
 					indent_min = math.min(indent_min, indent_last)
-					send_clean_code(pane_id, line)
+					send_clean_code(line)
 				end
 			end
 			if is_string then
@@ -109,11 +114,7 @@ local send_code = function(pane_id)
 	vim.api.nvim_input("<esc>")
 end
 
-vim.g.send_to_repl_pane = 2
-
-vim.keymap.set({ "v", "n" }, "<C-Bslash>", function()
-	send_code(vim.g.send_to_repl_pane)
-end, { desc = "Send code to REPL" })
+vim.keymap.set({ "v", "n" }, "<C-Bslash>", send_code, { desc = "Send code to REPL" })
 
 -- vim.keymap.set(
 --     { 'v', 'n' },

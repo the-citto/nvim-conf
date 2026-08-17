@@ -40,6 +40,21 @@ M.config = function()
 			end,
 			desc = "Set Pane 5",
 		},
+		{
+			"<leader>rc",
+			function()
+				vim.cmd("!tmux send-keys -t " .. vim.g.send_to_repl_pane .. " 'cargo check' C-m")
+			end,
+			desc = "cargo check",
+		},
+
+		{
+			"<leader>rr",
+			function()
+				vim.cmd("!tmux send-keys -t " .. vim.g.send_to_repl_pane .. " 'cargo run' C-m")
+			end,
+			desc = "cargo run",
+		},
 		{ "<leader>s", group = "Telescope", mode = { "n", "v" } },
 		{ "<leader>sc", "<cmd>Telescope commands<cr>", desc = ":Telescope commands" },
 		{ "<leader>sf", "<cmd>Telescope find_files<cr>", desc = ":Telescope find_files" },
