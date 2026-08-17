@@ -47,7 +47,6 @@ M.config = function()
 			end,
 			desc = "cargo check",
 		},
-
 		{
 			"<leader>rr",
 			function()
