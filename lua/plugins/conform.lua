@@ -5,6 +5,13 @@ local M = {
 M.config = function()
 	local conform = require("conform")
 	conform.setup({
+		formatters = {
+			deno_lint_fix = {
+				command = "deno",
+				args = { "lint", "--fix", "$FILENAME" },
+				stdin = false,
+			},
+		},
 		formatters_by_ft = {
 			c = { "clang-format" },
 			cpp = { "clang-format" },
@@ -16,10 +23,17 @@ M.config = function()
 			javascript = { "deno_fmt" },
 			javascriptreact = { "deno_fmt" },
 			lua = { "stylua" },
-			python = { "black", "ruff", "isort" },
+			python = {
+				"black",
+				"ruff",
+				"isort",
+			},
 			rust = { "rustfmt" },
 			typescript = { "deno_fmt" },
-			typescriptreact = { "deno_fmt" },
+			typescriptreact = {
+				"deno_fmt",
+				"deno_lint_fix",
+			},
 			yaml = { "deno_fmt" },
 		},
 	})
