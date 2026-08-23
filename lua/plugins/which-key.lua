@@ -43,14 +43,14 @@ M.config = function()
 		{
 			"<leader>rc",
 			function()
-				vim.cmd("!tmux send-keys -t " .. vim.g.send_to_repl_pane .. " 'cargo check' C-m")
+				vim.cmd("silent !tmux send-keys -t " .. vim.g.send_to_repl_pane .. " 'cargo check' C-m")
 			end,
 			desc = "cargo check",
 		},
 		{
 			"<leader>rr",
 			function()
-				vim.cmd("!tmux send-keys -t " .. vim.g.send_to_repl_pane .. " 'cargo run' C-m")
+				vim.cmd("silent !tmux send-keys -t " .. vim.g.send_to_repl_pane .. " 'cargo run' C-m")
 			end,
 			desc = "cargo run",
 		},
