@@ -1,17 +1,16 @@
-
 local M = {
-    "rshkarin/mason-nvim-lint",
-    dependencies = {
-        "williamboman/mason.nvim",
-        "mfussenegger/nvim-lint",
-    },
+	"rshkarin/mason-nvim-lint",
+	dependencies = {
+		"williamboman/mason.nvim",
+		"mfussenegger/nvim-lint",
+	},
 }
 
 M.config = function()
-    require ("mason-nvim-lint").setup{
-        automatic_install = true,
-    }
+	require("mason-nvim-lint").setup({
+		automatic_install = true,
+		ignore_install = { "clippy" },
+	})
 end
 
 return M
-
