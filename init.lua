@@ -143,6 +143,7 @@ vim.api.nvim_create_autocmd("FileType", {
 			"javascriptreact",
 			"r",
 			"terraform",
+			"terraform-vars",
 			"typescript",
 			"typescriptreact",
 			"yaml",
