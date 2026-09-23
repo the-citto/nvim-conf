@@ -26,6 +26,7 @@ M.config = function()
 		python = vim.fn.getenv("IS_WSL_WIN") == "1" and { "flake8" } or { "flake8", "mypy" },
 		rust = { "clippy" },
 		shellcheck = { "shellcheck" },
+		make = { "checkmake" },
 		-- terraform = {
 		--     "terraform",
 		-- },

@@ -11,7 +11,6 @@ local M = {
 M.config = function()
 	local capabilities = require("blink.cmp").get_lsp_capabilities()
 	vim.lsp.config("clangd", { capabilities = capabilities })
-	-- vim.lsp.config("cmake", { capabilities = capabilities })
 	vim.lsp.config("neocmake", { capabipities = capabilities })
 	-- vim.lsp.config("cssls", { capabilities = capabilities })
 	vim.lsp.config("denols", { capabilities = capabilities })
